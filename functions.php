@@ -9,8 +9,6 @@ include_once get_template_directory().'/inc/templates/ReignNavWalker.php';
 include_once get_template_directory().'/inc/templates/ReignCommentWalker.php';
 include_once get_template_directory().'/inc/utils.php';
 include_once get_template_directory().'/inc/extras.php';
-include_once get_template_directory().'/inc/post_types/zion_slider/zion_slider.php';
-include_once get_template_directory().'/inc/post_types/zion_portfolio/zion_portfolio.php';
 include_once get_template_directory().'/inc/page_meta_box_setup.php';
 include_once get_template_directory().'/inc/widgets/widgets_setup.php';
 

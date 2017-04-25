@@ -73,15 +73,15 @@ class Reign_Widget_Recent_Post extends WP_Widget{
         $show_post_author_name = ! empty( $instance['show_post_author_name'] ) ? $instance['show_post_author_name'] : '';
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( esc_attr( 'Title:' ) ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'reign-light' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php _e( esc_attr( 'Number of posts:') ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php _e( 'Number of posts:', 'reign-light' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_posts' ) ); ?>" type="number" value="<?php echo $number_of_posts; ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'show_post_author_name' ) ); ?>"><?php _e( esc_attr( 'Show Post Author Name:' ) ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'show_post_author_name' ) ); ?>"><?php _e( 'Show Post Author Name:', 'reign-light' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'show_post_author_name' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_post_author_name' ) ); ?>" type="checkbox" <?php echo ($show_post_author_name == 'on') ? 'checked' : '' ?>>
         </p>
         <?php

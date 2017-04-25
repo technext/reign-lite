@@ -161,7 +161,7 @@ function reign_setup_page_meta_boxes($meta_boxes){
                 'name'          => __('Rotator Text', 'reign-light'),
                 'type'          => 'text',
                 'id'            => $prefix.'rotator_text',
-                'desc'          => __('Put your words you want to rotate here, comma separated'),
+                'desc'          => __('Put your words you want to rotate here, comma separated', 'reign-light'),
                 'tab'           => 'text_rotator'
             ),
             array(
@@ -170,7 +170,7 @@ function reign_setup_page_meta_boxes($meta_boxes){
                 'taxonomy'          => 'zion_slider',
                 'field_type'    => 'select',
                 'id'            => $prefix.'header_slider',
-                'desc'          => __('Choose a slider from Z!ON Slider'),
+                'desc'          => __('Choose a slider from Z!ON Slider', 'reign-light'),
                 'placeholder'   => 'Select a Slider',
                 'query_args'    => array(
                     'taxonomy'      => 'zion_slider',

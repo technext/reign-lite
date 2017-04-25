@@ -36,13 +36,12 @@
 
                     <!-- Logo -->
                     <div class="navbar-brand" itemscope itemtype="https://schema.org/Organization">
-                        <?php $title = reign_get_the_title(); ?>
                         <?php $logo_url = get_theme_mod('reign_logo_url'); ?>
-                        <span itemprop="name" class="sr-only"><?php if($title) echo strip_tags($title); ?></span>
+                        <span itemprop="name" class="sr-only"><?php echo strip_tags(bloginfo('title')); ?></span>
                         <a itemprop="url" href="<?php echo home_url(); ?>">
                             <?php
                             if($logo_url) echo '<img src="'.$logo_url.'" alt="SITE LOGO"/>';
-                            else if($title) echo $title;
+                            else echo bloginfo('title');
                             ?>
                         </a>
                     </div><!-- /Logo -->

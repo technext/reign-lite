@@ -14,7 +14,7 @@ function reign_widgets_init() {
     footer_widget_area_setup();
 
     // portfolio widget  area setup
-    portfolio_widget_area_setup();
+//    portfolio_widget_area_setup();
 }
 add_action( 'widgets_init', 'reign_widgets_init' );
 
