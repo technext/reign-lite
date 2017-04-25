@@ -2,7 +2,7 @@
 
 if(!function_exists('reign_customize_register')){
     /***
-     * Registers Customizer Settings for Reign.
+     * Registers Customizer Settings for reign.
      * @param $wp_customize
      */
     function reign_customize_register( $wp_customize ){
@@ -37,7 +37,8 @@ function general_settings_section($wp_customize){
 
     $wp_customize->add_setting('reign_custom_css', array(
         'capability'    => 'edit_theme_options',
-        'type'          => 'option'
+        'type'          => 'option',
+        'sanitize_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control('reign_custom_css', array(
@@ -68,17 +69,18 @@ function blog_settings_section($wp_customize){
         'default'        => 'Standard',
         'capability'     => 'edit_theme_options',
         'type'           => 'option',
-
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
     $wp_customize->add_control( 'reign_blog_layout', array(
         'settings'      => 'reign_blog_layout',
-        'label'         => 'Blog Layout',
+        'label'         => __('Blog Layout', 'reign-light'),
         'section'       => 'blog_settings_section',
         'type'          => 'select',
         'choices'       => array(
-            'blog-standard'         => 'Standard',
-            'blog-grid-2-col'       => 'Grid 2 Column',
-            'blog-grid-3-col'       => 'Grid 3 Column'
+            'blog-standard'         => __('Standard', 'reign-light'),
+            'blog-grid-2-col'       => __('Grid 2 Column', 'reign-light'),
+            'blog-grid-3-col'       => __('Grid 3 Column', 'reign-light')
         ),
     ));
 
@@ -90,16 +92,17 @@ function blog_settings_section($wp_customize){
         'default'        => 'right-sidebar',
         'capability'     => 'edit_theme_options',
         'type'           => 'option',
-
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
     $wp_customize->add_control( 'reign_blog_sidebar_position', array(
         'settings' => 'reign_blog_sidebar_position',
-        'label'   => 'Blog Sidebar Position',
+        'label'   => __('Blog Sidebar Position', 'reign-light'),
         'section' => 'blog_settings_section',
         'type'    => 'select',
         'choices'    => array(
-            'left-sidebar' => 'Left',
-            'right-sidebar' => 'Right'
+            'left-sidebar' => __('Left', 'reign-light'),
+            'right-sidebar' => __('Right', 'reign-light')
         ),
     ));
 
@@ -108,14 +111,16 @@ function blog_settings_section($wp_customize){
     // ======================
 
     $wp_customize->add_setting('reign_blog_sticky_header_text', array(
-        'default'       => 'Sticky',
+        'default'       => __('Sticky', 'reign-light'),
         'capability'    => 'edit_theme_options',
-        'type'          => 'option'
+        'type'          => 'option',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control('reign_blog_sticky_header_text', array(
         'settings'      => 'reign_blog_sticky_header_text',
-        'label'         => 'Blog Sticky Post Sticker Text',
+        'label'         => __('Blog Sticky Post Sticker Text', 'reign-light'),
         'section'       => 'blog_settings_section',
         'type'          => 'text'
     ));
@@ -141,20 +146,21 @@ function portfolio_settings_section($wp_customize){
         'default'        => 'portfolio-lightbox',
         'capability'     => 'edit_theme_options',
         'type'           => 'option',
-
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
     $wp_customize->add_control( 'reign_portfolio_layout', array(
         'settings'                  => 'reign_portfolio_layout',
-        'label'                     => 'Portfolio Layout',
+        'label'                     => __('Portfolio Layout', 'reign-light'),
         'section'                   => 'reign_portfolio_section',
         'type'                      => 'select',
         'choices'                   => array(
-            'portfolio-lightbox'            => 'Portfolio Lightbox',
-            'portfolio-boxed-2-column'      => 'Boxed 2 Column',
-            'portfolio-boxed-3-column'      => 'Boxed 3 Column',
-            'portfolio-wide-2-column'       => 'Wide 2 Column',
-            'portfolio-wide-3-column'       => 'Wide 3 Column',
-            'portfolio-wide-4-column'       => 'Wide 4 Column'
+            'portfolio-lightbox'            => __('Portfolio Lightbox', 'reign-light'),
+            'portfolio-boxed-2-column'      => __('Boxed 2 Column', 'reign-light'),
+            'portfolio-boxed-3-column'      => __('Boxed 3 Column', 'reign-light'),
+            'portfolio-wide-2-column'       => __('Wide 2 Column', 'reign-light'),
+            'portfolio-wide-3-column'       => __('Wide 3 Column', 'reign-light'),
+            'portfolio-wide-4-column'       => __('Wide 4 Column', 'reign-light')
         ),
     ));
 
@@ -162,7 +168,10 @@ function portfolio_settings_section($wp_customize){
     // = Portfolio Header Image Section =
     // ==================================
 
-    $wp_customize->add_setting('reign_portfolio_header_image');
+    $wp_customize->add_setting('reign_portfolio_header_image', array(
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
+    ));
 
     $wp_customize->add_control(new WP_Customize_Image_Control(
         $wp_customize,
@@ -185,7 +194,10 @@ function logo_section($wp_customize){
     // = Logo Section =
     // ================
 
-    $wp_customize->add_setting('reign_logo_url');
+    $wp_customize->add_setting('reign_logo_url', array(
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
+    ));
 
     $wp_customize->add_control(new WP_Customize_Image_Control(
         $wp_customize,
@@ -218,11 +230,12 @@ function footer_widget_section($wp_customize){
         'default'        => '4',
         'capability'     => 'edit_theme_options',
         'type'           => 'option',
-
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
     $wp_customize->add_control( 'reign_number_of_footer_widget_column', array(
         'settings' => 'reign_number_of_footer_widget_column',
-        'label'   => 'Number Of Footer Widget Area:',
+        'label'   => __('Number Of Footer Widget Area:', 'reign-light'),
         'section' => 'footer_widgets',
         'type'    => 'select',
         'choices'    => array(
@@ -241,7 +254,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_widget_area_background_color', array(
         'default'       => '#171717',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control(
@@ -262,7 +277,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_widget_area_title_color', array(
         'default'       => '#ffffff',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control(
@@ -283,7 +300,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_widget_area_text_color', array(
         'default'       => '#ffffff',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control(
@@ -303,9 +322,10 @@ function footer_widget_section($wp_customize){
     // ===========================
 
     $wp_customize->add_setting('reign_left_column_text', array(
-        'default'       => 'Copyright &copy; 2017. Theme by <a href="https://www.wpwagon.com">WPWagon</a>',
+        'default'       => __('Copyright - 2017<a href="https://wpwagon.com">WP Wagon</a>', 'reign-light'),
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( 'reign_left_column_text', array(
@@ -326,7 +346,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_facebook_url', array(
         'default'       => '',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( 'reign_footer_facebook_url', array(
@@ -342,7 +364,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_twitter_url', array(
         'default'       => '',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( 'reign_footer_twitter_url', array(
@@ -358,7 +382,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_pinterest_url', array(
         'default'       => '',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( 'reign_footer_pinterest_url', array(
@@ -374,7 +400,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_behance_url', array(
         'default'       => '',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( 'reign_footer_behance_url', array(
@@ -390,7 +418,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_google_plus_url', array(
         'default'       => '',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( 'reign_footer_google_plus_url', array(
@@ -406,7 +436,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_footer_linkedin_url', array(
         'default'       => '',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( 'reign_footer_linkedin_url', array(
@@ -424,7 +456,9 @@ function footer_widget_section($wp_customize){
     $wp_customize->add_setting('reign_right_column_text', array(
         'default'       => '',
         'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod'
+        'type'          => 'theme_mod',
+        'sanitize_callback' => 'reign_customizer_sanitize',
+        'sanitize_js_callback' => 'reign_customizer_sanitize'
     ));
 
     $wp_customize->add_control( 'reign_right_column_text', array(
@@ -435,5 +469,9 @@ function footer_widget_section($wp_customize){
         'description' => ''
     ) );
 
+}
+
+function reign_customizer_sanitize($value){
+    return esc_url(esc_attr(esc_js($value)));
 }
 ?>

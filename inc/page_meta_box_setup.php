@@ -17,11 +17,10 @@ function reign_setup_page_meta_boxes($meta_boxes){
             $slider_opt[$slider->term_id] = $slider->name;
         }
     }
-//    print_r($sliders);die();
     $prefix = 'reign_';
     $meta_boxes[] = array(
         'id'            => $prefix.'page_meta_box',
-        'title'         => __('Page Settings', 'reign-light'),
+        'title'         => __('Header Settings', 'reign-light'),
         'post_types'    => array('page'),
         'context'       => 'normal',
         'priority'      => 'high',
@@ -87,13 +86,6 @@ function reign_setup_page_meta_boxes($meta_boxes){
                 'desc'          => '',
                 'tab'           => 'header'
             ),
-//            array(
-//                'name'          => __('Show Breadcrumb', 'reign-light'),
-//                'type'          => 'checkbox',
-//                'id'            => $prefix.'page_show_breadcrumb',
-//                'desc'          => '',
-//                'tab'           => 'header'
-//            ),
             array(
                 'name'          => __('Full Screen Header', 'reign-light'),
                 'type'          => 'checkbox',

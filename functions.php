@@ -1,6 +1,6 @@
 <?php
 
-//include_once get_template_directory().'/inc/subscribe.php';
+include_once get_template_directory().'/inc/plugins/meta-box-tabs/meta-box-tabs.php';
 include_once get_template_directory().'/inc/customizer-setup.php';
 include_once get_template_directory().'/inc/widget-area.php';
 include_once get_template_directory().'/inc/generate-dynamic-css.php';
@@ -12,7 +12,7 @@ include_once get_template_directory().'/inc/extras.php';
 include_once get_template_directory().'/inc/page_meta_box_setup.php';
 include_once get_template_directory().'/inc/widgets/widgets_setup.php';
 
-require_once get_template_directory().'/inc/Reign_Plugin_Installer/class-tgm-plugin-activation.php';
+require_once get_template_directory().'/inc/reign_light_plugin_installer/class-tgm-plugin-activation.php';
 
 if(! function_exists('reignwp_setup')){
     function reignwp_setup(){
@@ -255,18 +255,6 @@ if(!function_exists('reign_register_required_plugins')){
                 'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
                 'external_url'       => '', // If set, overrides default API URL and points to an external URL.
                 'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-            ),
-            // Meta box tabs Plugin
-            array(
-                'name'               => 'Meta Box Tabs',
-                'slug'               => 'meta-box-tabs',
-                'source'             => get_template_directory().'/inc/plugins/meta-box-tabs.zip',
-                'required'           => true,
-                'version'            => '',
-                'force_activation'   => true,
-                'force_deactivation' => false,
-                'external_url'       => '',
-                'is_callable'        => ''
             ),
             // Disqus Comment System Plugin
             array(
