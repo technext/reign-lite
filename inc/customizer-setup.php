@@ -12,9 +12,6 @@ if(!function_exists('reign_customize_register')){
         // blog setting options setup
         blog_settings_section($wp_customize);
 
-        // portfolio setting options setup
-        portfolio_settings_section($wp_customize);
-
         // header settings options setup
         logo_section($wp_customize);
 
@@ -79,8 +76,7 @@ function blog_settings_section($wp_customize){
         'type'          => 'select',
         'choices'       => array(
             'blog-standard'         => __('Standard', 'reign-light'),
-            'blog-grid-2-col'       => __('Grid 2 Column', 'reign-light'),
-            'blog-grid-3-col'       => __('Grid 3 Column', 'reign-light')
+            'blog-grid-2-col'       => __('Grid 2 Column', 'reign-light')
         ),
     ));
 
@@ -123,64 +119,6 @@ function blog_settings_section($wp_customize){
         'label'         => __('Blog Sticky Post Sticker Text', 'reign-light'),
         'section'       => 'blog_settings_section',
         'type'          => 'text'
-    ));
-}
-
-/**
- * Portfolio Settings Section
- * @param $wp_customize
- */
-
-function portfolio_settings_section($wp_customize){
-    $wp_customize->add_section('reign_portfolio_section', array(
-        'title'                     => __('Portfolio Settings', 'reign-light'),
-        'description'               => '',
-        'priority'                  => 90
-    ));
-
-    //  ======================
-    //  =  Portfolio Layout  =
-    //  ======================
-
-    $wp_customize->add_setting('reign_portfolio_layout', array(
-        'default'        => 'portfolio-lightbox',
-        'capability'     => 'edit_theme_options',
-        'type'           => 'option',
-        'sanitize_callback' => 'reign_customizer_sanitize',
-        'sanitize_js_callback' => 'reign_customizer_sanitize'
-    ));
-    $wp_customize->add_control( 'reign_portfolio_layout', array(
-        'settings'                  => 'reign_portfolio_layout',
-        'label'                     => __('Portfolio Layout', 'reign-light'),
-        'section'                   => 'reign_portfolio_section',
-        'type'                      => 'select',
-        'choices'                   => array(
-            'portfolio-lightbox'            => __('Portfolio Lightbox', 'reign-light'),
-            'portfolio-boxed-2-column'      => __('Boxed 2 Column', 'reign-light'),
-            'portfolio-boxed-3-column'      => __('Boxed 3 Column', 'reign-light'),
-            'portfolio-wide-2-column'       => __('Wide 2 Column', 'reign-light'),
-            'portfolio-wide-3-column'       => __('Wide 3 Column', 'reign-light'),
-            'portfolio-wide-4-column'       => __('Wide 4 Column', 'reign-light')
-        ),
-    ));
-
-    // ==================================
-    // = Portfolio Header Image Section =
-    // ==================================
-
-    $wp_customize->add_setting('reign_portfolio_header_image', array(
-        'sanitize_callback' => 'reign_customizer_sanitize',
-        'sanitize_js_callback' => 'reign_customizer_sanitize'
-    ));
-
-    $wp_customize->add_control(new WP_Customize_Image_Control(
-        $wp_customize,
-        'reign_portfolio_header_image',
-        array(
-            'label'      => __( 'Portfolio Archive Page Header', 'reign-light' ),
-            'section'    => 'reign_portfolio_section',
-            'settings'   => 'reign_portfolio_header_image'
-        )
     ));
 }
 
@@ -472,6 +410,6 @@ function footer_widget_section($wp_customize){
 }
 
 function reign_customizer_sanitize($value){
-    return esc_url(esc_attr(esc_js($value)));
+    return $value;
 }
 ?>

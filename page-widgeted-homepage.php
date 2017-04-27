@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Default
+ * Template Name: Widgeted Homepage
  * The template for displaying pages
  *
  * This is the template that displays all pages by default.
@@ -16,10 +16,16 @@ get_header(); ?>
 
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
-            <section class="section">
-                <div class="container">
-                    <div class="col-md-8 col-md-offset-2">
-                        <?php
+            <?php
+            if(is_active_sidebar('homepage-content')){
+                dynamic_sidebar('homepage-content');
+            }
+            else {
+                ?>
+                            <section class="section">
+                                <div class="container">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <?php
                         if( have_posts() ):
                             // Start the loop.
                             while ( have_posts() ) : the_post();
@@ -38,9 +44,12 @@ get_header(); ?>
                             get_template_part('content', 'none');
                         endif;
                         ?>
-                    </div>
-                </div>
-            </section>
+                                    </div>
+                                </div>
+                            </section>
+                <?php
+            }
+            ?>
         </main><!-- .site-main -->
     </div><!-- .content-area -->
 

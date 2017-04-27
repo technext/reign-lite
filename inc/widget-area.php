@@ -10,19 +10,40 @@ function reign_widgets_init() {
     // page side bar setup
     blog_page_sidebar_setup();
 
+    // widgeted home page widget area setup
+    widgeted_home_page_widgets_setup();
+
     // footer widget area setup
     footer_widget_area_setup();
 
-    // portfolio widget  area setup
-//    portfolio_widget_area_setup();
 }
 add_action( 'widgets_init', 'reign_widgets_init' );
+
+/**
+ * Blog sidebar widget
+ */
 
 function blog_page_sidebar_setup(){
     register_sidebar(array(
         'name'      => __('Blog Sidebar', 'reign-light'),
         'id'        => 'blog-page-sidebar',
         'class'     => 'content-wrap',
+        'before_widget' => '<div id="%1$s" class="%1$s %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>'
+    ));
+}
+
+/**
+ * Widgeted Homepage Widget Are
+ */
+
+function widgeted_home_page_widgets_setup(){
+    register_sidebar(array(
+        'name'      => __('Home Page Content', 'reign-light'),
+        'id'        => 'homepage-content',
+        'class'     => 'homepage-content',
         'before_widget' => '<div id="%1$s" class="%1$s %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4>',
@@ -52,21 +73,5 @@ function footer_widget_area_setup(){
 
 function get_footer_column_class($number){
     return ( $number == 1 ? 'col-md-12 col-sm-12' : ( $number == 2 ? 'col-md-6 col-sm-12' : ( $number == 3 ? 'col-md-4 col-sm-6' : ( $number == 4 ? 'col-md-3 col-sm-6' : ( $number == 5 ? 'col-md-5th col-sm-6' : 'col-md-6 col-sm-12' ) ) ) ) );
-}
-
-/**
- * Portfolio Widget Area Setup
- */
-
-function portfolio_widget_area_setup(){
-    register_sidebar(array(
-        'name'      => __('Portfolio Sidebar', 'reign-light'),
-        'id'        => 'portfolio-sidebar',
-        'class'     => 'content-wrap',
-        'before_widget' => '<div id="%1$s" class="%1$s %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h4>',
-        'after_title'   => '</h4>'
-    ));
 }
 ?>

@@ -140,7 +140,7 @@ if(!function_exists('reign_wp_enqueue_scripts')){
         wp_enqueue_script('imagesloaded', get_template_directory_uri().'/assets/lib/imagesloaded/imagesloaded.pkgd.min.js', array(), false, true);
         wp_enqueue_script('isotope', get_template_directory_uri().'/assets/lib/isotope/dist/isotope.pkgd.min.js', array(), false, true);
         wp_enqueue_script('owl-carousel', get_template_directory_uri().'/assets/lib/owlcarousel/owl-carousel/owl.carousel.js', array(), false, true);
-        wp_enqueue_script('googleapis', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBMTvnTCRe209AxrMUr-nbvUByp3RA0xuE&callback=initMap', array(), false , true);
+        wp_enqueue_script('googleapis', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBMTvnTCRe209AxrMUr-nbvUByp3RA0xuE', array(), false , true);
         wp_enqueue_script('waypoints-reign', get_template_directory_uri().'/assets/lib/waypoints/lib/jquery.waypoints.js', array(), false, true);
         wp_enqueue_script('waypoints-shortcuts', get_template_directory_uri().'/assets/lib/waypoints/lib/shortcuts/inview.js', array(), false, true);
 
@@ -267,6 +267,30 @@ if(!function_exists('reign_register_required_plugins')){
                 'force_deactivation' => false,
                 'external_url'       => '',
                 'is_callable'       => ''
+            ),
+            // Instagram feed
+            array(
+                'name'               => 'Instagram Feed',
+                'slug'               => 'instagram-feed',
+                'source'             => 'https://wordpress.org/plugins/instagram-feed/',
+                'required'           => true,
+                'version'            => '',
+                'force_activation'   => true,
+                'force_deactivation' => false,
+                'external_url'       => '',
+                'is_callable'       => ''
+            ),
+            // Contact Form 7 https://wordpress.org/plugins/contact-form-7/
+            array(
+                'name'               => 'Contact Form 7',
+                'slug'               => 'contact-form-7',
+                'source'             => 'https://wordpress.org/plugins/contact-form-7/',
+                'required'           => true,
+                'version'            => '',
+                'force_activation'   => true,
+                'force_deactivation' => false,
+                'external_url'       => '',
+                'is_callable'       => ''
             )
         );
 
@@ -296,6 +320,28 @@ if(!function_exists('reign_register_required_plugins')){
     }
     add_action('tgmpa_register', 'reign_register_required_plugins');
 }
+
+function reign_wp_title($title, $separator){
+    global $paged, $page;
+
+    if ( is_feed() )
+        return $title;
+
+    // Add the site name.
+    $title = get_bloginfo('title') . $title;
+
+    // Add the site description for the home/front page.
+    $site_description = get_bloginfo( 'description', 'display' );
+    if ( $site_description && ( is_home() || is_front_page() ) )
+        $title = "$title $separator $site_description";
+
+    // Add a page number if necessary.
+    if ( $paged >= 2 || $page >= 2 )
+        $title = "$title $separator " . sprintf( __( 'Page %s', 'stoic' ), max( $paged, $page ) );
+
+    return $title;
+}
+add_filter('wp_title', 'reign_wp_title', 10, 2);
 
 
 ?>

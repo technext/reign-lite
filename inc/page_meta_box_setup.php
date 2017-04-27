@@ -32,14 +32,6 @@ function reign_setup_page_meta_boxes($meta_boxes){
             'video'             => array(
                 'label'                => __('Video Background', 'reign-light'),
                 'icon'                 => 'fa fa-play'
-            ),
-            'text_rotator'      => array(
-                'label'                => __('Text Rotator', 'reign-light'),
-                'icon'                 => 'fa fa-undo'
-            ),
-            'slider'            => array(
-                'label'                => __('Slider', 'reign-light'),
-                'icon'                 => 'fa fa-picture-o'
             )
         ),
         'tab_style'     => 'left',
@@ -52,9 +44,7 @@ function reign_setup_page_meta_boxes($meta_boxes){
                 'options'       => array(
                     'featured_image'        => __('Featured Image', 'reign-light'),
                     'gradient_overlay'      => __('Featured Image (With Gradient)', 'reign-light'),
-                    'video_background'      => __('Video Background', 'reign-light'),
-                    'text_rotator'          => __('Text Rotator', 'reign-light'),
-                    'slider'                => __('Slider', 'reign-light')
+                    'video_background'      => __('Video Background', 'reign-light')
                 ),
                 'tab'           => 'header'
             ),
@@ -134,41 +124,6 @@ function reign_setup_page_meta_boxes($meta_boxes){
                 'id'            => $prefix.'page_header_video_end',
                 'desc'          => '',
                 'tab'           => 'video'
-            ),
-            array(
-                'name'          => __('Title text before rotator', 'reign-light'),
-                'type'          => 'text',
-                'id'            => $prefix.'rotator_text_before',
-                'desc'          => __('This text will be added before rotator text in the title', 'reign-light'),
-                'tab'           => 'text_rotator'
-            ),
-            array(
-                'name'          => __('Title text after rotator', 'reign-light'),
-                'type'          => 'text',
-                'id'            => $prefix.'rotator_text_after',
-                'desc'          => __('This text will be added after rotator text in the title', 'reign-light'),
-                'tab'           => 'text_rotator'
-            ),
-            array(
-                'name'          => __('Rotator Text', 'reign-light'),
-                'type'          => 'text',
-                'id'            => $prefix.'rotator_text',
-                'desc'          => __('Put your words you want to rotate here, comma separated', 'reign-light'),
-                'tab'           => 'text_rotator'
-            ),
-            array(
-                'name'          => __('Sliders', 'reign-light'),
-                'type'          => 'taxonomy',
-                'taxonomy'          => 'zion_slider',
-                'field_type'    => 'select',
-                'id'            => $prefix.'header_slider',
-                'desc'          => __('Choose a slider from Z!ON Slider', 'reign-light'),
-                'placeholder'   => 'Select a Slider',
-                'query_args'    => array(
-                    'taxonomy'      => 'zion_slider',
-                    'hide_empty'    => true
-                ),
-                'tab'           => 'slider'
             )
         )
     );

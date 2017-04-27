@@ -113,16 +113,35 @@ function reign_get_thumbnail_url($post_id = 0){
 }
 
 function reign_get_the_title(){
-    if(is_post_type_archive('zion_portfolio')){
-        return 'Portfolio';
+    if(is_search()){
+        return __('Search Results For '. get_search_query(true), 'stoic');
+    }
+    if(is_tag()){
+        return single_tag_title("Tag: ", false);
+    }
+    if(is_category()){
+        return single_cat_title("Category: ", false);
     }
     if(is_blog()){
-        $blog_page_id = get_option('page_for_posts');
-        return get_the_title($blog_page_id);
+        if(!is_single()){
+            if('page' == get_option('show_on_front')){
+                $blog_page_id = get_option('page_for_posts');
+                if(isset($blog_page_id)){
+                    return esc_attr(get_the_title($blog_page_id));
+                }
+                else{
+                    return esc_attr(get_the_title());
+                }
+            }
+            else{
+                return esc_attr(get_bloginfo('title'));
+            }
+        }
+        else {
+            return esc_attr(get_the_title());
+        }
     }
-    else {
-        return get_the_title( );
-    }
+    return esc_attr(get_the_title());
 }
 
 function reign_wp_primary_nav_menu(){

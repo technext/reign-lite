@@ -14,8 +14,7 @@
         <meta name="keywords" content="Agency, Corporate, Flat, Responsive">
         <title>
             <?php
-                wp_title('', true, 'left');
-                echo '' . strip_tags(get_bloginfo('title')) . ' - ' . strip_tags(get_bloginfo('description'));
+                wp_title('|', true, 'left');
             ?>
         </title>
         <?php wp_head(); ?>
