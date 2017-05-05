@@ -14,7 +14,7 @@ class ReignSectionTitleWidget extends WP_Widget{
             'section-title-widget',
             __('Section Title (Homepage)', 'reign-light'),
             array(
-                'description'       => __('Section Title. This widget is designed for homepage widgeted area only'),
+                'description'       => __('Section Title. This widget is designed for homepage widgeted area only', 'reign-light'),
                 'classname'         => ''
             )
         );

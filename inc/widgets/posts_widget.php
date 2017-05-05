@@ -12,7 +12,7 @@ class ReignPostsWidget extends WP_Widget{
             'post-widget',
             __('Posts (Homepage)', 'reign-light'),
             array(
-                'description'       => __('Shows Posts. This widget is designed for homepage widgeted area only'),
+                'description'       => __('Shows Posts. This widget is designed for homepage widgeted area only', 'reign-light'),
                 'classname'         => ''
             )
         );
@@ -36,7 +36,6 @@ class ReignPostsWidget extends WP_Widget{
                 'order'             => 'DESC'
             )
         );
-//        print_r($posts);die();
         ob_start();
         ?>
         <!-- Blog -->

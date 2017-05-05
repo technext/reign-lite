@@ -64,10 +64,6 @@
             get_template_part('inc/templates/headers/image_header_gradient_overlay');
         elseif($header_type == 'video_background'):
             get_template_part('inc/templates/headers/video_header');
-        elseif($header_type == 'text_rotator'):
-            get_template_part('inc/templates/headers/text_rotator');
-        elseif($header_type == 'slider'):
-            get_template_part('inc/templates/headers/slider_header');
         else:
             get_template_part('inc/templates/headers/image_header');
         endif;

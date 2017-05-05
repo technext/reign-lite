@@ -33,11 +33,31 @@ get_header(); ?>
 			 * (where ___ is the post format) and that will be used instead.
 			 */
 			get_template_part( 'content-single', get_post_format() );
+//            echo '<div class="col-md-12">';
+            echo '<div class="post-tag-cloud">';
+            the_tags('<h4>Tags:</h4>', '', '');
+            echo '</div>';
+//            echo '</div>';
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+            wp_link_pages(array(
+                'before'           => '<p>' . __( 'Pages:' , 'reign-light'),
+                'after'            => '</p>',
+                'link_before'      => '',
+                'link_after'       => '',
+                'next_or_number'   => 'number',
+                'separator'        => ' ',
+                'nextpagelink'     => __( 'Next page' , 'reign-light'),
+                'previouspagelink' => __( 'Previous page' , 'reign-light'),
+                'pagelink'         => '%',
+                'echo'             => 0
+            ));
+
+            // If comments are open or we have at least one comment, load up the comment template.
+            if ( comments_open() || get_comments_number() ) :
+//                echo '<div class="col-md-12">';
+                comments_template();
+//                echo '</div>';
+            endif;
 
 		// End the loop.
 		endwhile;

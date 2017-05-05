@@ -1,0 +1,88 @@
+/** ------------------------------------ Widget Admin Panel ------------------------------------ **/
+
+.wp-admin .widget-content img{
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.wp-admin .widget-content .team-member{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.wp-admin .widget-content .team-member h4{
+    margin: 1em 0;
+}
+
+/** -------------------------------------------------------------------------------------------- **/
+
+/** ------------------------------------ Notice Admin Panel ------------------------------------ **/
+
+.reign-admin-notice{
+    background-color: black;
+    color: #fff;
+    padding: 15px;
+}
+
+.reign-admin-notice img{
+    display: block;
+}
+
+.reign-admin-notice h2{
+    color: #fff;
+}
+
+.reign-admin-notice h3{
+    color: #fff;
+}
+
+.reign-admin-notice .row{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.reign-admin-notice .col-md-6{
+    width: 50%;
+    float: left;
+}
+
+.reign-admin-notice .clear-fix{
+    clear: both;
+}
+
+.reign-admin-notice .text-right{
+    text-align: right;
+}
+
+.reign-admin-notice .button{
+    background-color: #00a0d2;
+    border: none;
+    box-shadow: none;
+    background-image: none ;
+    color: white;
+    padding: 10px 30px;
+    font-size: 16px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.reign-admin-notice .button:hover,
+.reign-admin-notice .button:focus,
+.reign-admin-notice .button:active{
+    background: #006e8b;
+    color: #fff;
+}
+
+.reign-admin-notice .button.buy-pro{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    height: 44px;
+}
+
+/** -------------------------------------------------------------------------------------------- **/

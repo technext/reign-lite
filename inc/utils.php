@@ -114,7 +114,7 @@ function reign_get_thumbnail_url($post_id = 0){
 
 function reign_get_the_title(){
     if(is_search()){
-        return __('Search Results For '. get_search_query(true), 'stoic');
+        return __('Search Results For '. get_search_query(true), 'reign-light');
     }
     if(is_tag()){
         return single_tag_title("Tag: ", false);

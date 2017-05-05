@@ -140,7 +140,6 @@ if(!function_exists('reign_wp_enqueue_scripts')){
         wp_enqueue_script('imagesloaded', get_template_directory_uri().'/assets/lib/imagesloaded/imagesloaded.pkgd.min.js', array(), false, true);
         wp_enqueue_script('isotope', get_template_directory_uri().'/assets/lib/isotope/dist/isotope.pkgd.min.js', array(), false, true);
         wp_enqueue_script('owl-carousel', get_template_directory_uri().'/assets/lib/owlcarousel/owl-carousel/owl.carousel.js', array(), false, true);
-        wp_enqueue_script('googleapis', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBMTvnTCRe209AxrMUr-nbvUByp3RA0xuE', array(), false , true);
         wp_enqueue_script('waypoints-reign', get_template_directory_uri().'/assets/lib/waypoints/lib/jquery.waypoints.js', array(), false, true);
         wp_enqueue_script('waypoints-shortcuts', get_template_directory_uri().'/assets/lib/waypoints/lib/shortcuts/inview.js', array(), false, true);
 
@@ -234,6 +233,29 @@ if(!function_exists('reign_body_classes')){
     }
 
     add_filter('body_class', 'reign_body_classes');
+}
+
+if(!function_exists('reign_admin_notice')){
+    function reign_admin_notice(){
+        ob_start();
+        ?>
+        <div class="notice reign-admin-notice is-dismissible">
+            <img src="<?php echo get_template_directory_uri() . '/assets/images/raignmain-logo.png' ?>"
+                 alt="R E ! G N Light">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Want more out of this theme?</h2>
+                    <h3>Checkout our pro version.</h3>
+                </div>
+                <a href="https://wpwagon.com/themes/premium-corporate-agency-wordpress-theme-reign-pro/"
+                   class="button buy-pro" target="_blank">Buy Pro   &xrarr;</a>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+        <?php
+        echo ob_get_clean();
+    }
+    add_action('admin_notices', 'reign_admin_notice');
 }
 
 if(!function_exists('reign_register_required_plugins')){
@@ -337,11 +359,26 @@ function reign_wp_title($title, $separator){
 
     // Add a page number if necessary.
     if ( $paged >= 2 || $page >= 2 )
-        $title = "$title $separator " . sprintf( __( 'Page %s', 'stoic' ), max( $paged, $page ) );
+        $title = "$title $separator " . sprintf( __( 'Page %s', 'reign-light' ), max( $paged, $page ) );
 
     return $title;
 }
 add_filter('wp_title', 'reign_wp_title', 10, 2);
 
+function reign_enqueue_admin_scripts(){
+    wp_enqueue_style('ionicons', get_template_directory_uri().'/assets/lib/ionicons/css/ionicons.css');
+    wp_enqueue_style('font-icon-picker', get_template_directory_uri().'/assets/lib/font-icon-picker/css/jquery.fonticonpicker.min.css');
+    wp_enqueue_style('font-icon-picker-grey', get_template_directory_uri().'/assets/lib/font-icon-picker/themes/grey-theme/jquery.fonticonpicker.grey.min.css');
+    wp_enqueue_style('font-icon-picker-dark-grey', get_template_directory_uri().'/assets/lib/font-icon-picker/themes/dark-grey-theme/jquery.fonticonpicker.darkgrey.min.css');
+    wp_enqueue_style('font-icon-picker-bootstrap', get_template_directory_uri().'/assets/lib/font-icon-picker/themes/bootstrap-theme/jquery.fonticonpicker.bootstrap.min.css');
+    wp_enqueue_style('font-icon-picker-inverted', get_template_directory_uri().'/assets/lib/font-icon-picker/themes/inverted-theme/jquery.fonticonpicker.inverted.min.css');
+    wp_enqueue_style('simple-iconpicker', get_template_directory_uri().'/assets/lib/simple-icon-picker/simple-iconpicker.min.css');
+    wp_enqueue_style('reign-admin-css', get_template_directory_uri().'/assets/css/reign.admin.css');
+    wp_enqueue_media();
+    wp_enqueue_script('font-icon-picker', get_template_directory_uri().'/assets/lib/font-icon-picker/jquery.fonticonpicker.min.js', array('jquery'));
+    wp_enqueue_script('simple-iconpicker', get_template_directory_uri().'/assets/lib/simple-icon-picker/simple-iconpicker.min.js', array('jquery'));
+    wp_enqueue_script('reign-admin-js', get_template_directory_uri().'/assets/js/reign.admin.js', array('jquery'), false, true);
+}
+add_action('admin_enqueue_scripts', 'reign_enqueue_admin_scripts');
 
 ?>

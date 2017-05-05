@@ -3,10 +3,10 @@ Theme Name: Reign Light
 Theme URI: http://reign.aqibashef.me
 Author: Aqib Ashef
 Author URI: http://aqibashef.me
-Description: This theme is developed as a free distribution of Reign Pro (https://wpwagon.com/themes/premium-corporate-agency-wordpress-theme-reign-pro/)
+Description: This theme is developed as a free distribution version of Reign Pro (https://wpwagon.com/themes/premium-corporate-agency-wordpress-theme-reign-pro/)
 Version: 1.0.0
 Template: reign-light
-License: GNU General Public License v2 or later
+License: LICENSE
 License URI: LICENSE
 Text Domain: reign-light
 
@@ -4317,6 +4317,78 @@ article.comment{
 .team .team-bio-wrapper {
 
 }
+
+/** -------------------------------------------------------------------------------------------- **/
+
+/** ================================== Single Post Tags ======================================== **/
+
+.post-tag-cloud a {
+  background-color: #000;
+  color: #fdfdfd;
+  border-radius: 2px;
+  font-size: 12px !important;
+  padding: 5px 35px;
+  letter-spacing: 2px;
+  line-height: auto;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  margin-bottom: 6px;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.post-tag-cloud a:before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.post-tag-cloud a:hover,
+.post-tag-cloud a:focus,
+.post-tag-cloud a:active{
+  color: black;
+  outline: none;
+  text-decoration: none;
+}
+
+.post-tag-cloud a:hover:before{
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+}
+
+
 
 /** -------------------------------------------------------------------------------------------- **/
 
