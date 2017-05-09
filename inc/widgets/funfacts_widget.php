@@ -49,7 +49,7 @@ class ReignFunFactsWidget extends WP_Widget{
                         <div class="row">
                             <?php for($i = 1; $i <= $number_of_counter_box; $i++): ?>
                                 <?php $counting_icon = ! empty( $instance['funfacts-counter-'.$i.'-icon'] ) ? $instance['funfacts-counter-'.$i.'-icon'] : '' ?>
-                                <?php $counting_number = ! empty( $instance['funfacts-counter-'.$i.'-number'] ) ? $instance['funfacts-counter-'.$i.'-number'] : '' ?>
+                                <?php $counting_number = isset($instance['funfacts-counter-'.$i.'-number'] ) ? $instance['funfacts-counter-'.$i.'-number'] : '' ?>
                                 <?php $counting_description = ! empty( $instance['funfacts-counter-'.$i.'-description'] ) ? $instance['funfacts-counter-'.$i.'-description'] : __('Description', 'reign-lite') ?>
                                 <div class="<?php echo $col_class; ?>">
                                     <div class="counter-box">
@@ -112,7 +112,7 @@ class ReignFunFactsWidget extends WP_Widget{
         </p>
         <?php for($i = 1; $i <= $number_of_counter_box; $i++): ?>
             <?php $counter_icon = !empty($instance['funfacts-counter-'.$i.'-icon']) ? $instance['funfacts-counter-'.$i.'-icon'] : ''; ?>
-            <?php $counter_number = !empty($instance['funfacts-counter-'.$i.'-number']) ? $instance['funfacts-counter-'.$i.'-number'] : ''; ?>
+            <?php $counter_number = isset($instance['funfacts-counter-'.$i.'-number']) ? $instance['funfacts-counter-'.$i.'-number'] : ''; ?>
             <?php $counter_description = !empty($instance['funfacts-counter-'.$i.'-description']) ? $instance['funfacts-counter-'.$i.'-description'] : ''; ?>
 
             <div class="team-member">
@@ -149,7 +149,7 @@ class ReignFunFactsWidget extends WP_Widget{
         $counter_box_number = $instance['funfacts-counter-box-number'] = ( ! empty( $new_instance['funfacts-counter-box-number'] ) ? $new_instance['funfacts-counter-box-number'] : 3 );
         for($i = 1; $i <= $counter_box_number; $i++){
             $instance['funfacts-counter-'.$i.'-icon'] = ( ! empty( $new_instance['funfacts-counter-'.$i.'-icon'] ) ? $new_instance['funfacts-counter-'.$i.'-icon'] : '' );
-            $instance['funfacts-counter-'.$i.'-number'] = ( ! empty($new_instance['funfacts-counter-'.$i.'-number']) ? $new_instance['funfacts-counter-'.$i.'-number'] : '' );
+            $instance['funfacts-counter-'.$i.'-number'] = ( isset($new_instance['funfacts-counter-'.$i.'-number']) ? $new_instance['funfacts-counter-'.$i.'-number'] : '' );
             $instance['funfacts-counter-'.$i.'-description'] = ( ! empty( $new_instance['funfacts-counter-'.$i.'-description'] ) ? $new_instance['funfacts-counter-'.$i.'-description'] : '' );
         }
         return $instance;
