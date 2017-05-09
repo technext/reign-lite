@@ -6,9 +6,9 @@ class Reign_Widget_Search extends WP_Widget{
     {
         parent::__construct(
             'reign_widget_search',
-            __('Search', 'reign-light'),
+            __('Search', 'reign-lite'),
             array(
-                'description'   => __('Site Wide Search Widget', 'reign-light')
+                'description'   => __('Site Wide Search Widget', 'reign-lite')
             )
         );
     }
@@ -48,10 +48,10 @@ class Reign_Widget_Search extends WP_Widget{
      * @param array $instance Previously saved values from database.
      */
     public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'reign-light' );
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'reign-lite' );
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'reign-lite' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
         </p>
         <?php

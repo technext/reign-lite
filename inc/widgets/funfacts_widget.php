@@ -15,9 +15,9 @@ class ReignFunFactsWidget extends WP_Widget{
         $this->ionicons = $icons;
         parent::__construct(
             'funfact-widget',
-            __('Fun Fact (Home)', 'reign-light'),
+            __('Fun Fact (Home)', 'reign-lite'),
             array(
-                'description'               => __('Shows funfact section. This widget is designed for homepage widgeted area only.', 'reign-light'),
+                'description'               => __('Shows funfact section. This widget is designed for homepage widgeted area only.', 'reign-lite'),
                 'classname'                 => ''
             ));
     }
@@ -49,8 +49,8 @@ class ReignFunFactsWidget extends WP_Widget{
                         <div class="row">
                             <?php for($i = 1; $i <= $number_of_counter_box; $i++): ?>
                                 <?php $counting_icon = ! empty( $instance['funfacts-counter-'.$i.'-icon'] ) ? $instance['funfacts-counter-'.$i.'-icon'] : '' ?>
-                                <?php $counting_number = ! empty( $instance['funfacts-counter-'.$i.'-number'] ) ? $instance['funfacts-counter-'.$i.'-number'] : 9999 ?>
-                                <?php $counting_description = ! empty( $instance['funfacts-counter-'.$i.'-description'] ) ? $instance['funfacts-counter-'.$i.'-description'] : __('Description', 'reign-light') ?>
+                                <?php $counting_number = ! empty( $instance['funfacts-counter-'.$i.'-number'] ) ? $instance['funfacts-counter-'.$i.'-number'] : '' ?>
+                                <?php $counting_description = ! empty( $instance['funfacts-counter-'.$i.'-description'] ) ? $instance['funfacts-counter-'.$i.'-description'] : __('Description', 'reign-lite') ?>
                                 <div class="<?php echo $col_class; ?>">
                                     <div class="counter-box">
                                         <?php if(isset($counting_icon) && $counting_icon != ''): ?>
@@ -80,23 +80,24 @@ class ReignFunFactsWidget extends WP_Widget{
         $number_of_counter_box = (! empty($instance['funfacts-counter-box-number']) ? $instance['funfacts-counter-box-number'] : 3);
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'funfacts-title' ) ); ?>"><?php _e( 'Title:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'funfacts-title' ) ); ?>"><?php _e( 'Title:', 'reign-lite' ); ?></label>
             <input class="widefat" type="text" id="<?php echo esc_attr($this->get_field_id('funfacts-title')); ?>" name="<?php echo esc_attr($this->get_field_name('funfacts-title')); ?>" value="<?php echo $title; ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'funfacts-subtitle' ) ); ?>"><?php _e( 'Subtitle:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'funfacts-subtitle' ) ); ?>"><?php _e( 'Subtitle:', 'reign-lite' ); ?></label>
             <input class="widefat" type="text" id="<?php echo esc_attr($this->get_field_id('funfacts-subtitle')); ?>" name="<?php echo esc_attr($this->get_field_name('funfacts-subtitle')); ?>" value="<?php echo $subtitle; ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('funfacts-bg')); ?>"><?php echo __('Background Image', 'reign-light') ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('funfacts-bg')); ?>"><?php echo __('Background Image', 'reign-lite') ?></label>
             <a class="funfacts-bg" id="funfacts-bg" data-target="<?php echo esc_attr($this->get_field_id('funfacts-bg')) ?>" href="#">Choose an image.</a>
+            <small>Suggested image size: 1265px X 570px or it's proportional</small>
             <?php if(isset($bg) && $bg != ''): ?>
             <img src="<?php echo $bg; ?>" alt="Alternatie button">
             <?php endif; ?>
             <input type="hidden" value="<?php echo $bg; ?>" name="<?php echo esc_attr($this->get_field_name('funfacts-bg')); ?>" id="<?php echo esc_attr($this->get_field_id('funfacts-bg')) ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('funfacts-col-number')); ?>"><?php echo __('Number of Column', 'reign-light') ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('funfacts-col-number')); ?>"><?php echo __('Number of Column', 'reign-lite') ?></label>
             <select class="widefat" name="<?php echo esc_attr($this->get_field_name('funfacts-col-number')); ?>"
                     id="<?php echo esc_attr('funfacts-col-number'); ?>">
                 <option value="1" <?php echo $number_of_column == 1 ? 'selected' : ''; ?>>1</option>
@@ -106,17 +107,17 @@ class ReignFunFactsWidget extends WP_Widget{
             </select>
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('funfacts-counter-box-number')) ?>"><?php echo __('Number of Counter Boxes', 'reign-light') ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('funfacts-counter-box-number')) ?>"><?php echo __('Number of Counter Boxes', 'reign-lite') ?></label>
             <input type="number" class="widefat" id="<?php echo esc_attr($this->get_field_id('funfacts-counter-box-number')) ?>" name="<?php echo esc_attr($this->get_field_name('funfacts-counter-box-number')) ?>" value="<?php echo $number_of_counter_box; ?>">
         </p>
         <?php for($i = 1; $i <= $number_of_counter_box; $i++): ?>
             <?php $counter_icon = !empty($instance['funfacts-counter-'.$i.'-icon']) ? $instance['funfacts-counter-'.$i.'-icon'] : ''; ?>
-            <?php $counter_number = !empty($instance['funfacts-counter-'.$i.'-number']) ? $instance['funfacts-counter-'.$i.'-number'] : 9999; ?>
-            <?php $counter_description = !empty($instance['funfacts-counter-'.$i.'-description']) ? $instance['funfacts-counter-'.$i.'-description'] : __('Description', 'reign-light'); ?>
+            <?php $counter_number = !empty($instance['funfacts-counter-'.$i.'-number']) ? $instance['funfacts-counter-'.$i.'-number'] : ''; ?>
+            <?php $counter_description = !empty($instance['funfacts-counter-'.$i.'-description']) ? $instance['funfacts-counter-'.$i.'-description'] : ''; ?>
 
             <div class="team-member">
                 <p>
-                    <label for="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-icon')); ?>"><?php echo __('Icon', 'reign-light') ?></label>
+                    <label for="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-icon')); ?>"><?php echo __('Icon', 'reign-lite') ?></label>
                     <select class="widefat font-picker" name="<?php echo esc_attr($this->get_field_name('funfacts-counter-'.$i.'-icon')); ?>" id="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-icon')); ?>">
                         <option value="">No Icon</option>
                         <?php foreach ($this->ionicons as $icon): ?>
@@ -127,11 +128,11 @@ class ReignFunFactsWidget extends WP_Widget{
                     </select>
                 </p>
                 <p>
-                    <label for="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-number')) ?>"><?php echo __('Counter Number', 'reign-light') ?></label>
+                    <label for="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-number')) ?>"><?php echo __('Counter Number', 'reign-lite') ?></label>
                     <input class="widefat" type="text" id="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-number')) ?>" name="<?php echo esc_attr($this->get_field_name('funfacts-counter-'.$i.'-number')) ?>" value="<?php echo $counter_number; ?>">
                 </p>
                 <p>
-                    <label for="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-description')) ?>"><?php echo __('Counter Description', 'reign-light') ?></label>
+                    <label for="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-description')) ?>"><?php echo __('Counter Description', 'reign-lite') ?></label>
                     <input class="widefat" type="text" id="<?php echo esc_attr($this->get_field_id('funfacts-counter-'.$i.'-description')) ?>" name="<?php echo esc_attr($this->get_field_name('funfacts-counter-'.$i.'-description')) ?>" value="<?php echo $counter_description; ?>">
                 </p>
             </div>
@@ -148,8 +149,8 @@ class ReignFunFactsWidget extends WP_Widget{
         $counter_box_number = $instance['funfacts-counter-box-number'] = ( ! empty( $new_instance['funfacts-counter-box-number'] ) ? $new_instance['funfacts-counter-box-number'] : 3 );
         for($i = 1; $i <= $counter_box_number; $i++){
             $instance['funfacts-counter-'.$i.'-icon'] = ( ! empty( $new_instance['funfacts-counter-'.$i.'-icon'] ) ? $new_instance['funfacts-counter-'.$i.'-icon'] : '' );
-            $instance['funfacts-counter-'.$i.'-number'] = ( ! empty( $new_instance['funfacts-counter-'.$i.'-number'] ) ? $new_instance['funfacts-counter-'.$i.'-number'] : 9999 );
-            $instance['funfacts-counter-'.$i.'-description'] = ( ! empty( $new_instance['funfacts-counter-'.$i.'-description'] ) ? $new_instance['funfacts-counter-'.$i.'-description'] : __('Description', 'reign-light') );
+            $instance['funfacts-counter-'.$i.'-number'] = ( ! is_null($new_instance['funfacts-counter-'.$i.'-number']) ? $new_instance['funfacts-counter-'.$i.'-number'] : '' );
+            $instance['funfacts-counter-'.$i.'-description'] = ( ! empty( $new_instance['funfacts-counter-'.$i.'-description'] ) ? $new_instance['funfacts-counter-'.$i.'-description'] : '' );
         }
         return $instance;
     }

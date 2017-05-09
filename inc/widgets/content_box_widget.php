@@ -14,9 +14,9 @@ class ReignContentBoxWidget extends WP_Widget{
         $this->ionicons = $icons;
         parent::__construct(
             'content-box-widget',
-            __('Content Box (Homepage)', 'reign-light'),
+            __('Content Box (Homepage)', 'reign-lite'),
             array(
-                'description'           => __('Shows Content Boxes. This widget is designed for homepage widgeted area only.', 'reign-light'),
+                'description'           => __('Shows Content Boxes. This widget is designed for homepage widgeted area only.', 'reign-lite'),
                 'classname'             => ''
             ));
     }
@@ -34,8 +34,8 @@ class ReignContentBoxWidget extends WP_Widget{
                     <div class="row">
                         <?php for ($i = 1; $i <= $number_of_content_boxes; $i++): ?>
                             <?php $content_box_icon = !empty($instance['content-box-'.$i.'-icon']) ? $instance['content-box-'.$i.'-icon'] : ''; ?>
-                            <?php $content_box_title = !empty($instance['content-box-'.$i.'-title']) ? $instance['content-box-'.$i.'-title'] : __('Title', 'reign-light'); ?>
-                            <?php $content_box_description = !empty($instance['content-box-'.$i.'-description']) ? $instance['content-box-'.$i.'-description'] : __('Description', 'reign-light'); ?>
+                            <?php $content_box_title = !empty($instance['content-box-'.$i.'-title']) ? $instance['content-box-'.$i.'-title'] : ''; ?>
+                            <?php $content_box_description = !empty($instance['content-box-'.$i.'-description']) ? $instance['content-box-'.$i.'-description'] : ''; ?>
                             <div class="service <?php echo $col_class; ?>">
                                 <?php if($content_box_icon != ''): ?>
                                     <div class="service-icon text-center">
@@ -68,7 +68,7 @@ class ReignContentBoxWidget extends WP_Widget{
 
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('content-box-col-number')); ?>"><?php echo __('Number of Columns', 'reign-light'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('content-box-col-number')); ?>"><?php echo __('Number of Columns', 'reign-lite'); ?></label>
             <select class="widefat" name="<?php echo esc_attr($this->get_field_name('content-box-col-number')); ?>"
                     id="<?php echo esc_attr($this->get_field_id('content-box-col-number')); ?>">
                 <option value="1" <?php echo $number_of_column == 1 ? 'selected' : '' ?>>1</option>
@@ -77,17 +77,17 @@ class ReignContentBoxWidget extends WP_Widget{
             </select>
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('content-box-content-box-number')); ?>"><?php echo __('Number of Content Boxes', 'reign-light') ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('content-box-content-box-number')); ?>"><?php echo __('Number of Content Boxes', 'reign-lite') ?></label>
             <input type="number" class="widefat" name="<?php echo esc_attr($this->get_field_name('content-box-content-box-number')); ?>" id="<?php echo esc_attr($this->get_field_id('content-box-content-box-number')); ?>" value="<?php echo $number_of_content_boxes; ?>">
         </p>
         <?php for ($i = 1; $i <= $number_of_content_boxes; $i++): ?>
         <?php $content_box_icon = !empty($instance['content-box-'.$i.'-icon']) ? $instance['content-box-'.$i.'-icon'] : ''; ?>
-        <?php $content_box_title = !empty($instance['content-box-'.$i.'-title']) ? $instance['content-box-'.$i.'-title'] : __('Title', 'reign-light'); ?>
-        <?php $content_box_description = !empty($instance['content-box-'.$i.'-description']) ? $instance['content-box-'.$i.'-description'] : __('Description', 'reign-light'); ?>
+        <?php $content_box_title = !empty($instance['content-box-'.$i.'-title']) ? $instance['content-box-'.$i.'-title'] : ''; ?>
+        <?php $content_box_description = !empty($instance['content-box-'.$i.'-description']) ? $instance['content-box-'.$i.'-description'] : ''; ?>
 
         <div class="team-member">
                 <p>
-                    <label for="<?php echo esc_attr($this->get_field_id('content-box-'.$i.'-icon')); ?>"><?php echo __('Icon', 'reign-light') ?></label>
+                    <label for="<?php echo esc_attr($this->get_field_id('content-box-'.$i.'-icon')); ?>"><?php echo __('Icon', 'reign-lite') ?></label>
                     <select class="widefat font-picker" name="<?php echo esc_attr($this->get_field_name('content-box-'.$i.'-icon')); ?>" id="<?php echo esc_attr($this->get_field_id('content-box-'.$i.'-icon')); ?>">
                         <option value="">No Icon</option>
                         <?php foreach ($this->ionicons as $icon): ?>
@@ -98,12 +98,12 @@ class ReignContentBoxWidget extends WP_Widget{
                     </select>
                 </p>
                 <p>
-                    <label for="<?php echo esc_attr($this->get_field_id('content-box-'. $i . '-title')); ?>"><?php echo __('Title', 'reign-light') ?></label>
-                    <input type="text" class="widefat" id="<?php echo esc_attr($this->get_field_id('content-box-'. $i . '-title')); ?>" name="<?php echo esc_attr($this->get_field_name('content-box-'. $i . '-title')); ?>" value="<?php echo $content_box_title; ?>">
+                    <label for="<?php echo esc_attr($this->get_field_id('content-box-'. $i . '-title')); ?>"><?php echo __('Title', 'reign-lite') ?></label>
+                    <input type="text" class="widefat" id="<?php echo esc_attr($this->get_field_id('content-box-'. $i . '-title')); ?>" name="<?php echo esc_attr($this->get_field_name('content-box-'. $i . '-title')); ?>" <?php if($content_box_title != ''): ?>value="<?php echo $content_box_title; ?>" <?php else: ?> placeholder="<?php echo __('Title', 'reign-lite'); ?>" <?php endif; ?> >
                 </p>
                 <p>
-                    <label for="<?php echo esc_attr($this->get_field_id('content-box-'.$i.'-description')); ?>"><?php echo __('Description', 'reign-light') ?></label>
-                    <textarea class="widefat" name="<?php echo esc_attr($this->get_field_name('content-box-'.$i.'-description')); ?>" id="<?php echo esc_attr($this->get_field_id('content-box-'.$i.'-description')); ?>" cols="5"><?php echo $content_box_description; ?></textarea>
+                    <label for="<?php echo esc_attr($this->get_field_id('content-box-'.$i.'-description')); ?>"><?php echo __('Description', 'reign-lite') ?></label>
+                    <textarea class="widefat" name="<?php echo esc_attr($this->get_field_name('content-box-'.$i.'-description')); ?>" id="<?php echo esc_attr($this->get_field_id('content-box-'.$i.'-description')); ?>" cols="5" placeholder="<?php echo __('Description', 'reign-lite'); ?>"><?php echo $content_box_description; ?></textarea>
                 </p>
             </div>
         <?php endfor; ?>
@@ -117,8 +117,8 @@ class ReignContentBoxWidget extends WP_Widget{
         $number_of_content_boxes = $instance['content-box-content-box-number'] = ( ! empty( $new_instance['content-box-content-box-number'] ) ? $new_instance['content-box-content-box-number'] : '' );
         for($i = 1; $i <= $number_of_content_boxes; $i++){
             $instance['content-box-'.$i.'-icon'] = ( ! empty( $new_instance['content-box-'.$i.'-icon'] ) ? $new_instance['content-box-'.$i.'-icon'] : '' );
-            $instance['content-box-'.$i.'-title'] = ( ! empty( $new_instance['content-box-'.$i.'-title'] ) ? $new_instance['content-box-'.$i.'-title'] : __('Title', 'reign-light') );
-            $instance['content-box-'.$i.'-description'] = ( ! empty( $new_instance['content-box-'.$i.'-description'] ) ? $new_instance['content-box-'.$i.'-description'] : __('Description', 'reign-light') );
+            $instance['content-box-'.$i.'-title'] = ( ! empty( $new_instance['content-box-'.$i.'-title'] ) ? $new_instance['content-box-'.$i.'-title'] : '' );
+            $instance['content-box-'.$i.'-description'] = ( ! empty( $new_instance['content-box-'.$i.'-description'] ) ? $new_instance['content-box-'.$i.'-description'] : '' );
         }
         return $instance;
     }

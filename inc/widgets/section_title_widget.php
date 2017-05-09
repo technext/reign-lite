@@ -12,9 +12,9 @@ class ReignSectionTitleWidget extends WP_Widget{
     {
         parent::__construct(
             'section-title-widget',
-            __('Section Title (Homepage)', 'reign-light'),
+            __('Section Title (Homepage)', 'reign-lite'),
             array(
-                'description'       => __('Section Title. This widget is designed for homepage widgeted area only', 'reign-light'),
+                'description'       => __('Section Title. This widget is designed for homepage widgeted area only', 'reign-lite'),
                 'classname'         => ''
             )
         );
@@ -30,8 +30,8 @@ class ReignSectionTitleWidget extends WP_Widget{
      */
     public function widget( $args, $instance ) {
         echo $args['before_widget'];
-        $section_title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : 'Title';
-        $section_subtitle = ( ! empty( $instance['subtitle'] ) ) ? $instance['subtitle'] : 'Subtitle';
+        $section_title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : '';
+        $section_subtitle = ( ! empty( $instance['subtitle'] ) ) ? $instance['subtitle'] : '';
         $show_underline = true;
         $style = 'dark';
 //        print_r($posts);die();
@@ -70,15 +70,15 @@ class ReignSectionTitleWidget extends WP_Widget{
      * @param array $instance Previously saved values from database.
      */
     public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : 'Title' ;
-        $subtitle = ! empty( $instance['subtitle'] ) ? $instance['subtitle'] : 'Subtitle' ;
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : '' ;
+        $subtitle = ! empty( $instance['subtitle'] ) ? $instance['subtitle'] : '' ;
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php _e('Title', 'reign-light') ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php _e('Title', 'reign-lite') ?></label>
             <input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title')); ?>" value="<?php echo $title; ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('subtitle')); ?>"><?php _e('Subtitle', 'reign-light') ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('subtitle')); ?>"><?php _e('Subtitle', 'reign-lite') ?></label>
             <input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('subtitle') ); ?>" name="<?php echo esc_attr( $this->get_field_name('subtitle')); ?>" value="<?php echo $subtitle; ?>">
         </p>
         <?php
@@ -96,8 +96,8 @@ class ReignSectionTitleWidget extends WP_Widget{
      */
     public function update( $new_instance, $old_instance ) {
         $instance = array();
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ? $new_instance['title'] : 'Title' );
-        $instance['subtitle'] = ( ! empty( $new_instance['subtitle'] ) ? $new_instance['subtitle'] : 'Subtitle' );
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ? $new_instance['title'] : '' );
+        $instance['subtitle'] = ( ! empty( $new_instance['subtitle'] ) ? $new_instance['subtitle'] : '' );
         return $instance;
     }
 }

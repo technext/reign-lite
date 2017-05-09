@@ -11,9 +11,9 @@ class CallToActionWidget extends WP_Widget{
     {
         parent::__construct(
             'call-to-action-widget',
-            __('Call To Action (Homepage)', 'reign-light'),
+            __('Call To Action (Homepage)', 'reign-lite'),
             array(
-                'description'           => __('This widget is designed for homepage widgeted area only.', 'reign-light'),
+                'description'           => __('This widget is designed for homepage widgeted area only.', 'reign-lite'),
                 'classname'             => ''
             ));
     }
@@ -61,7 +61,7 @@ class CallToActionWidget extends WP_Widget{
         </p>
         <p>
             <label for="<?php echo esc_attr($this->get_field_id('button-text')); ?>">Link Text</label>
-            <input type="text" id="<?php echo esc_attr($this->get_field_id('button-text')); ?>" name="<?php echo esc_attr($this->get_field_name('button-text')); ?>" value="<?php echo $button_text; ?>">
+            <input type="text" id="<?php echo esc_attr($this->get_field_id('button-text')); ?>" name="<?php echo esc_attr($this->get_field_name('button-text')); ?>" value="<?php echo $button_text; ?>" placeholder="<?php echo __('Link Text', 'reign-lite') ?>">
         </p>
         <p>
             <label for="<?php echo esc_attr($this->get_field_id('button-url')); ?>">Link Url</label>

@@ -50,7 +50,12 @@ jQuery(document).ready(function ($) {
         renderMediaUploader($(this).next('img'), $(this).parent().find('input#'+$(this).attr('data-target')))
     });
 
+
     $('.font-picker').fontIconPicker();
+
+    $(document).on('widget-added', function (e, widget) {
+        $('.font-picker').fontIconPicker();
+    });
 
     $(document).on('widget-updated', function (e, widget) {
         $('.font-picker').fontIconPicker();

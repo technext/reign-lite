@@ -16,6 +16,7 @@ include_once get_template_directory().'/inc/widgets/call_to_action_widget.php';
 include_once get_template_directory().'/inc/widgets/team_widget.php';
 include_once get_template_directory().'/inc/widgets/funfacts_widget.php';
 include_once get_template_directory().'/inc/widgets/content_box_widget.php';
+include_once get_template_directory().'/inc/widgets/text_widget_homepage.php';
 
 function reign_widget_unregister(){
     unregister_widget('WP_Widget_Search');
@@ -36,6 +37,7 @@ function reign_widget_register(){
     register_widget('ReignTeamWidget');
     register_widget('ReignFunFactsWidget');
     register_widget('ReignContentBoxWidget');
+    register_widget('TextWidgetHomepage');
 }
 add_action('widgets_init', 'reign_widget_register');
 

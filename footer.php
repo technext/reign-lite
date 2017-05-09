@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-4">
                         <?php $left_column_text = get_theme_mod('reign_left_column_text'); ?>
-                        <p class="copyright text-xs-center"><?php echo (isset($left_column_text) && $left_column_text != '') ? $left_column_text : '&copy; 2015 <a href="https://www.wpwagon.com">WP Wagon</a>'; ?></p>
+                        <p class="copyright text-xs-center"><?php echo (isset($left_column_text) && $left_column_text != '') ? $left_column_text : '&copy; 2017 <a href="https://www.wpwagon.com">WP Wagon</a>'; ?></p>
                     </div>
                     <div class="col-md-5 col-sm-4">
                         <?php if(reign_has_any_footer_social_links()): ?>

@@ -11,9 +11,9 @@ class AboutUsWidget extends WP_Widget{
     {
         parent::__construct(
             'about-us-widget',
-            __('About Us (Homepage)', 'reign-light'),
+            __('About Us (Homepage)', 'reign-lite'),
             array(
-                'description'           => __('Shows About Us Section. This widget is designed for homepage widgeted area only.', 'reign-light'),
+                'description'           => __('Shows About Us Section. This widget is designed for homepage widgeted area only.', 'reign-lite'),
                 'classname'             => ''
             )
         );
@@ -76,22 +76,22 @@ class AboutUsWidget extends WP_Widget{
      * @param array $instance Previously saved values from database.
      */
     public function form( $instance ) {
-        $left_title = ! empty( $instance['left_title'] ) ? $instance['left_title'] : 'Left Title' ;
-        $left_text = ! empty( $instance['left_text'] ) ? $instance['left_text'] : 'Left Text' ;
+        $left_title = ! empty( $instance['left_title'] ) ? $instance['left_title'] : '' ;
+        $left_text = ! empty( $instance['left_text'] ) ? $instance['left_text'] : '' ;
         $center_image = ! empty( $instance['center_image']) ? $instance['center_image'] : '';
-        $right_title = ! empty( $instance['right_title'] ) ? $instance['right_title'] : 'Right Title' ;
-        $right_text = ! empty( $instance['right_text'] ) ? $instance['right_text'] : 'Right Text' ;
+        $right_title = ! empty( $instance['right_title'] ) ? $instance['right_title'] : '' ;
+        $right_text = ! empty( $instance['right_text'] ) ? $instance['right_text'] : '' ;
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('left_title')); ?>"><?php _e('Title (Left Block)', 'reign-light') ?></label>
-            <input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('left_title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('left_title')); ?>" value="<?php echo $left_title; ?>">
+            <label for="<?php echo esc_attr($this->get_field_id('left_title')); ?>"><?php _e('Title (Left Block)', 'reign-lite') ?></label>
+            <input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('left_title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('left_title')); ?>" value="<?php echo $left_title; ?>" placeholder="<?php echo __('Left Title', 'reign-lite') ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('left_text')); ?>"><?php echo __('Text (Left Block)', 'reign-light') ?></label>
-            <textarea rows="5" class="widefat" id="<?php echo esc_attr($this->get_field_id('left_text')); ?>" name="<?php echo esc_attr($this->get_field_name('left_text')); ?>"><?php echo $left_text; ?></textarea>
+            <label for="<?php echo esc_attr($this->get_field_id('left_text')); ?>"><?php echo __('Text (Left Block)', 'reign-lite') ?></label>
+            <textarea rows="5" class="widefat" id="<?php echo esc_attr($this->get_field_id('left_text')); ?>" name="<?php echo esc_attr($this->get_field_name('left_text')); ?>" placeholder="<?php echo __('Left Text', 'reign-lite') ?>"><?php echo $left_text; ?></textarea>
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('center_image')); ?>"><?php echo __('Image (Center Block)', 'reign-light') ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('center_image')); ?>"><?php echo __('Image (Center Block)', 'reign-lite') ?></label>
             <a title="Choose Image" href="#" id="widget-about-us-choose-image">Choose Image</a>
             <?php if(!empty($center_image)): ?>
                 <img src="<?php echo $center_image; ?>" alt="Image">
@@ -99,12 +99,12 @@ class AboutUsWidget extends WP_Widget{
             <input id="widget-about-us-input" name="<?php echo esc_attr($this->get_field_name('center_image')); ?>" type="hidden" value="<?php echo $center_image; ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('right_title')); ?>"><?php _e('Title (Right Block)', 'reign-light') ?></label>
-            <input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('right_title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('right_title')); ?>" value="<?php echo $right_title; ?>">
+            <label for="<?php echo esc_attr($this->get_field_id('right_title')); ?>"><?php _e('Title (Right Block)', 'reign-lite') ?></label>
+            <input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('right_title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('right_title')); ?>" value="<?php echo $right_title; ?>" placeholder="<?php echo __('Right Title', 'reign-lite'); ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('right_text')); ?>"><?php echo __('Text (Right Block)', 'reign-light') ?></label>
-            <textarea rows="5" class="widefat" id="<?php echo esc_attr($this->get_field_id('right_text')); ?>" name="<?php echo esc_attr($this->get_field_name('right_text')); ?>"><?php echo $right_text; ?></textarea>
+            <label for="<?php echo esc_attr($this->get_field_id('right_text')); ?>"><?php echo __('Text (Right Block)', 'reign-lite') ?></label>
+            <textarea rows="5" class="widefat" id="<?php echo esc_attr($this->get_field_id('right_text')); ?>" name="<?php echo esc_attr($this->get_field_name('right_text')); ?>" placeholder="<?php echo __('Right Text', 'reign-lite') ?>"><?php echo $right_text; ?></textarea>
         </p>
         <?php
     }

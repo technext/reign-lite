@@ -11,9 +11,9 @@ class ContactFormWidget extends WP_Widget{
     {
         parent::__construct(
             'contact-form-widget',
-            __('Contact Form (Homepage)', 'reign-light'),
+            __('Contact Form (Homepage)', 'reign-lite'),
             array(
-                'description'           => __('Shows Contact Form. This widget is designed for homepage widgeted area only.', 'reign-light'),
+                'description'           => __('Shows Contact Form. This widget is designed for homepage widgeted area only.', 'reign-lite'),
                 'classname'             => ''
             )
         );
@@ -50,7 +50,7 @@ class ContactFormWidget extends WP_Widget{
         );
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'contact_form' ) ); ?>"><?php _e( 'Select the form:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'contact_form' ) ); ?>"><?php _e( 'Select the form:', 'reign-lite' ); ?></label>
             <select name="<?php echo esc_attr($this->get_field_name('contact_form')); ?>"
                     id="<?php echo esc_attr($this->get_field_id('contact_form')); ?>">
                 <?php foreach ($contact_forms as $contact_form): ?>

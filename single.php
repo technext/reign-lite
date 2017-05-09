@@ -40,14 +40,14 @@ get_header(); ?>
 //            echo '</div>';
 
             wp_link_pages(array(
-                'before'           => '<p>' . __( 'Pages:' , 'reign-light'),
+                'before'           => '<p>' . __( 'Pages:' , 'reign-lite'),
                 'after'            => '</p>',
                 'link_before'      => '',
                 'link_after'       => '',
                 'next_or_number'   => 'number',
                 'separator'        => ' ',
-                'nextpagelink'     => __( 'Next page' , 'reign-light'),
-                'previouspagelink' => __( 'Previous page' , 'reign-light'),
+                'nextpagelink'     => __( 'Next page' , 'reign-lite'),
+                'previouspagelink' => __( 'Previous page' , 'reign-lite'),
                 'pagelink'         => '%',
                 'echo'             => 0
             ));

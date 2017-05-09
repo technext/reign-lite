@@ -114,7 +114,7 @@ function reign_get_thumbnail_url($post_id = 0){
 
 function reign_get_the_title(){
     if(is_search()){
-        return __('Search Results For '. get_search_query(true), 'reign-light');
+        return __('Search Results For '. get_search_query(true), 'reign-lite');
     }
     if(is_tag()){
         return single_tag_title("Tag: ", false);
@@ -189,14 +189,14 @@ if ( ! function_exists( 'reign_comment_nav' ) ) :
         if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
             ?>
             <nav class="navigation comment-navigation" role="navigation">
-                <h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'reign-light' ); ?></h2>
+                <h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'reign-lite' ); ?></h2>
                 <div class="nav-links">
                     <?php
-                    if ( $prev_link = get_previous_comments_link( __( 'Older Comments', 'reign-light' ) ) ) :
+                    if ( $prev_link = get_previous_comments_link( __( 'Older Comments', 'reign-lite' ) ) ) :
                         printf( '<div class="nav-previous">%s</div>', $prev_link );
                     endif;
 
-                    if ( $next_link = get_next_comments_link( __( 'Newer Comments', 'reign-light' ) ) ) :
+                    if ( $next_link = get_next_comments_link( __( 'Newer Comments', 'reign-lite' ) ) ) :
                         printf( '<div class="nav-next">%s</div>', $next_link );
                     endif;
                     ?>

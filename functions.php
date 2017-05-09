@@ -17,7 +17,7 @@ require_once get_template_directory().'/inc/reign_light_plugin_installer/class-t
 if(! function_exists('reignwp_setup')){
     function reignwp_setup(){
         // Load Text Domains
-        load_theme_textdomain('reign-light', get_temp_dir().'/languages');
+        load_theme_textdomain('reign-lite', get_temp_dir().'/languages');
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
@@ -44,7 +44,7 @@ if(! function_exists('reignwp_setup')){
 
         // This theme uses wp_nav_menu() in one locations.
         register_nav_menus( array(
-            'primary' => __( 'Primary Nav Menu', 'reign-light' )
+            'primary' => __( 'Primary Nav Menu', 'reign-lite' )
         ) );
 
         /*
@@ -106,7 +106,7 @@ add_action('init', 'reign_add_post_type_support');
 function reign_register_primary_menu(){
     // This theme uses wp_nav_menu() in one locations.
     register_nav_menus( array(
-        'primary' => __( 'Primary Nav Menu', 'reign-light' )
+        'primary' => __( 'Primary Nav Menu', 'reign-lite' )
     ) );
 }
 add_action('init', 'reign_register_primary_menu');
@@ -172,7 +172,7 @@ if ( ! function_exists( 'reign_fonts_url' ) ){
          * Translators: If there are characters in your language that are not supported
          * by Noto Sans, translate this to 'off'. Do not translate into your own language.
          */
-        if ( 'off' !== _x( 'on', 'Noto Sans font: on or off', 'reign-light' ) ) {
+        if ( 'off' !== _x( 'on', 'Noto Sans font: on or off', 'reign-lite' ) ) {
             $fonts[] = 'Noto Sans:400italic,700italic,400,700';
         }
 
@@ -180,7 +180,7 @@ if ( ! function_exists( 'reign_fonts_url' ) ){
          * Translators: If there are characters in your language that are not supported
          * by Noto Serif, translate this to 'off'. Do not translate into your own language.
          */
-        if ( 'off' !== _x( 'on', 'Noto Serif font: on or off', 'reign-light' ) ) {
+        if ( 'off' !== _x( 'on', 'Noto Serif font: on or off', 'reign-lite' ) ) {
             $fonts[] = 'Noto Serif:400italic,700italic,400,700';
         }
 
@@ -188,7 +188,7 @@ if ( ! function_exists( 'reign_fonts_url' ) ){
          * Translators: If there are characters in your language that are not supported
          * by Inconsolata, translate this to 'off'. Do not translate into your own language.
          */
-        if ( 'off' !== _x( 'on', 'Inconsolata font: on or off', 'reign-light' ) ) {
+        if ( 'off' !== _x( 'on', 'Inconsolata font: on or off', 'reign-lite' ) ) {
             $fonts[] = 'Inconsolata:400,700';
         }
 
@@ -196,7 +196,7 @@ if ( ! function_exists( 'reign_fonts_url' ) ){
          * Translators: To add an additional character subset specific to your language,
          * translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language.
          */
-        $subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'reign-light' );
+        $subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'reign-lite' );
 
         if ( 'cyrillic' == $subset ) {
             $subsets .= ',cyrillic,cyrillic-ext';
@@ -244,11 +244,18 @@ if(!function_exists('reign_admin_notice')){
                  alt="R E ! G N Light">
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Want more out of this theme?</h2>
-                    <h3>Checkout our pro version.</h3>
+                    <h2>2 out of 3 of Reign Lite users are</h2>
+                    <h2>Upgrading to Reign Pro.</h2>
+                    <h4><a target="_blank" href="https://wpwagon.com/themes/premium-corporate-agency-wordpress-theme-reign-pro?utm_src=reign_lite_dashboard&utm_medium=reign_lite_dashboard">Find out why?</a></h4>
                 </div>
-                <a href="https://wpwagon.com/themes/premium-corporate-agency-wordpress-theme-reign-pro/"
-                   class="button buy-pro" target="_blank">Buy Pro   &xrarr;</a>
+                <div class="col-md-6">
+                    <p>
+                        <a href="http://demo.wpwagon.com/preview/premium-corporate-agency-wordpress-theme-reign-pro?utm_src=reign_lite_dashboard&utm_medium=reign_lite_dashboard"
+                           class="button" target="_blank">Live Preview   &xrarr;</a>
+                        <a href="https://wpwagon.com/themes/premium-corporate-agency-wordpress-theme-reign-pro?utm_src=reign_lite_dashboard&utm_medium=reign_lite_dashboard"
+                           class="button" target="_blank">Buy Pro   &xrarr;</a>
+                    </p>
+                </div>
                 <div class="clear-fix"></div>
             </div>
         </div>
@@ -257,6 +264,12 @@ if(!function_exists('reign_admin_notice')){
     }
     add_action('admin_notices', 'reign_admin_notice');
 }
+
+function footer_right_text_override(){
+    return '<p class="text-right">Theme By <a href="https://wpwagon.com">WPWagon</a></p>';
+}
+
+add_filter('theme_mod_reign_right_column_text', 'footer_right_text_override');
 
 if(!function_exists('reign_register_required_plugins')){
     function reign_register_required_plugins(){
@@ -359,7 +372,7 @@ function reign_wp_title($title, $separator){
 
     // Add a page number if necessary.
     if ( $paged >= 2 || $page >= 2 )
-        $title = "$title $separator " . sprintf( __( 'Page %s', 'reign-light' ), max( $paged, $page ) );
+        $title = "$title $separator " . sprintf( __( 'Page %s', 'reign-lite' ), max( $paged, $page ) );
 
     return $title;
 }
@@ -372,11 +385,9 @@ function reign_enqueue_admin_scripts(){
     wp_enqueue_style('font-icon-picker-dark-grey', get_template_directory_uri().'/assets/lib/font-icon-picker/themes/dark-grey-theme/jquery.fonticonpicker.darkgrey.min.css');
     wp_enqueue_style('font-icon-picker-bootstrap', get_template_directory_uri().'/assets/lib/font-icon-picker/themes/bootstrap-theme/jquery.fonticonpicker.bootstrap.min.css');
     wp_enqueue_style('font-icon-picker-inverted', get_template_directory_uri().'/assets/lib/font-icon-picker/themes/inverted-theme/jquery.fonticonpicker.inverted.min.css');
-    wp_enqueue_style('simple-iconpicker', get_template_directory_uri().'/assets/lib/simple-icon-picker/simple-iconpicker.min.css');
     wp_enqueue_style('reign-admin-css', get_template_directory_uri().'/assets/css/reign.admin.css');
     wp_enqueue_media();
     wp_enqueue_script('font-icon-picker', get_template_directory_uri().'/assets/lib/font-icon-picker/jquery.fonticonpicker.min.js', array('jquery'));
-    wp_enqueue_script('simple-iconpicker', get_template_directory_uri().'/assets/lib/simple-icon-picker/simple-iconpicker.min.js', array('jquery'));
     wp_enqueue_script('reign-admin-js', get_template_directory_uri().'/assets/js/reign.admin.js', array('jquery'), false, true);
 }
 add_action('admin_enqueue_scripts', 'reign_enqueue_admin_scripts');

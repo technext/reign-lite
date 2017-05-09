@@ -10,9 +10,9 @@ class ReignPostsWidget extends WP_Widget{
     {
         parent::__construct(
             'post-widget',
-            __('Posts (Homepage)', 'reign-light'),
+            __('Posts (Homepage)', 'reign-lite'),
             array(
-                'description'       => __('Shows Posts. This widget is designed for homepage widgeted area only', 'reign-light'),
+                'description'       => __('Shows Posts. This widget is designed for homepage widgeted area only', 'reign-lite'),
                 'classname'         => ''
             )
         );
@@ -92,7 +92,7 @@ class ReignPostsWidget extends WP_Widget{
         $number_of_posts = ! empty( $instance['number_of_posts'] ) ? $instance['number_of_posts'] : 5 ;
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php _e( 'Number of posts:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php _e( 'Number of posts:', 'reign-lite' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_posts' ) ); ?>" type="number" value="<?php echo $number_of_posts; ?>">
         </p>
         <?php

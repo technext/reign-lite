@@ -17,6 +17,11 @@
     margin: 1em 0;
 }
 
+.wp-admin .widget-content .text-widget-homepage{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 /** -------------------------------------------------------------------------------------------- **/
 
 /** ------------------------------------ Notice Admin Panel ------------------------------------ **/
@@ -25,6 +30,7 @@
     background-color: black;
     color: #fff;
     padding: 15px;
+    border: none;
 }
 
 .reign-admin-notice img{
@@ -36,6 +42,10 @@
 }
 
 .reign-admin-notice h3{
+    color: #fff;
+}
+
+.reign-admin-notice h4 a{
     color: #fff;
 }
 
@@ -59,6 +69,10 @@
     text-align: right;
 }
 
+.reign-admin-notice p{
+    display: block;
+}
+
 .reign-admin-notice .button{
     background-color: #00a0d2;
     border: none;
@@ -67,8 +81,9 @@
     color: white;
     padding: 10px 30px;
     font-size: 16px;
-    display: inline-block;
+    display: inline;
     border-radius: 2px;
+    margin-bottom: 10px;
 }
 
 .reign-admin-notice .button:hover,
@@ -78,11 +93,12 @@
     color: #fff;
 }
 
-.reign-admin-notice .button.buy-pro{
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    height: 44px;
+/** -------------------------------------------------------------------------------------------- **/
+
+/** -------------------------------------- Metabox --------------------------------------------- **/
+
+#reign_page_meta_box .rwmb-tab-panels{
+    padding-bottom: 30px;
 }
 
 /** -------------------------------------------------------------------------------------------- **/

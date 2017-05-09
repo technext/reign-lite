@@ -23,7 +23,7 @@ if(!function_exists('reign_customize_register')){
 
 function general_settings_section($wp_customize){
     $wp_customize->add_section('reign_general_section', array(
-        'title'             => __('General', 'reign-light'),
+        'title'             => __('General', 'reign-lite'),
         'description'       => '',
         'priority'          => 90
     ));
@@ -40,7 +40,7 @@ function general_settings_section($wp_customize){
 
     $wp_customize->add_control('reign_custom_css', array(
         'settings'      => 'reign_custom_css',
-        'label'         => __('Custom CSS', 'reign-light'),
+        'label'         => __('Custom CSS', 'reign-lite'),
         'section'       => 'reign_general_section',
         'type'          => 'textarea'
     ));
@@ -53,7 +53,7 @@ function general_settings_section($wp_customize){
 
 function blog_settings_section($wp_customize){
     $wp_customize->add_section('blog_settings_section', array(
-        'title'             => __('Blog', 'reign-light'),
+        'title'             => __('Blog', 'reign-lite'),
         'description'       => '',
         'priority'          => 90,
     ));
@@ -71,12 +71,12 @@ function blog_settings_section($wp_customize){
     ));
     $wp_customize->add_control( 'reign_blog_layout', array(
         'settings'      => 'reign_blog_layout',
-        'label'         => __('Blog Layout', 'reign-light'),
+        'label'         => __('Blog Layout', 'reign-lite'),
         'section'       => 'blog_settings_section',
         'type'          => 'select',
         'choices'       => array(
-            'blog-standard'         => __('Standard', 'reign-light'),
-            'blog-grid-2-col'       => __('Grid 2 Column', 'reign-light')
+            'blog-standard'         => __('Standard', 'reign-lite'),
+            'blog-grid-2-col'       => __('Grid 2 Column', 'reign-lite')
         ),
     ));
 
@@ -93,12 +93,12 @@ function blog_settings_section($wp_customize){
     ));
     $wp_customize->add_control( 'reign_blog_sidebar_position', array(
         'settings' => 'reign_blog_sidebar_position',
-        'label'   => __('Blog Sidebar Position', 'reign-light'),
+        'label'   => __('Blog Sidebar Position', 'reign-lite'),
         'section' => 'blog_settings_section',
         'type'    => 'select',
         'choices'    => array(
-            'left-sidebar' => __('Left', 'reign-light'),
-            'right-sidebar' => __('Right', 'reign-light')
+            'left-sidebar' => __('Left', 'reign-lite'),
+            'right-sidebar' => __('Right', 'reign-lite')
         ),
     ));
 
@@ -107,7 +107,7 @@ function blog_settings_section($wp_customize){
     // ======================
 
     $wp_customize->add_setting('reign_blog_sticky_header_text', array(
-        'default'       => __('Sticky', 'reign-light'),
+        'default'       => __('Sticky', 'reign-lite'),
         'capability'    => 'edit_theme_options',
         'type'          => 'option',
         'sanitize_callback' => 'reign_customizer_sanitize',
@@ -116,7 +116,7 @@ function blog_settings_section($wp_customize){
 
     $wp_customize->add_control('reign_blog_sticky_header_text', array(
         'settings'      => 'reign_blog_sticky_header_text',
-        'label'         => __('Blog Sticky Post Sticker Text', 'reign-light'),
+        'label'         => __('Blog Sticky Post Sticker Text', 'reign-lite'),
         'section'       => 'blog_settings_section',
         'type'          => 'text'
     ));
@@ -141,9 +141,10 @@ function logo_section($wp_customize){
         $wp_customize,
         'reign_logo_url',
         array(
-            'label'      => __( 'Upload a logo', 'reign-light' ),
-            'section'    => 'title_tagline',
-            'settings'   => 'reign_logo_url'
+            'label'         => __( 'Upload a logo', 'reign-lite' ),
+            'description'   => __('Suggested logo height: 60px', 'reign-lite'),
+            'section'       => 'title_tagline',
+            'settings'      => 'reign_logo_url'
         )
     ));
 }
@@ -156,7 +157,7 @@ function logo_section($wp_customize){
 function footer_widget_section($wp_customize){
 
     $wp_customize->add_section('footer_widgets', array(
-        'title'         => __('Footer Settings', 'reign-light'),
+        'title'         => __('Footer Settings', 'reign-lite'),
         'description'   => '',
         'priority'      => 90
     ));
@@ -173,7 +174,7 @@ function footer_widget_section($wp_customize){
     ));
     $wp_customize->add_control( 'reign_number_of_footer_widget_column', array(
         'settings' => 'reign_number_of_footer_widget_column',
-        'label'   => __('Number Of Footer Widget Area:', 'reign-light'),
+        'label'   => __('Number Of Footer Widget Area:', 'reign-lite'),
         'section' => 'footer_widgets',
         'type'    => 'select',
         'choices'    => array(
@@ -201,7 +202,7 @@ function footer_widget_section($wp_customize){
         $wp_customize,
         'reign_footer_widget_area_background_color',
         array(
-            'label'     => __('Footer Widget Background Color', 'reign-light'),
+            'label'     => __('Footer Widget Background Color', 'reign-lite'),
             'settings'  => 'reign_footer_widget_area_background_color',
             'section'   => 'footer_widgets',
             'priority'  => 10
@@ -224,7 +225,7 @@ function footer_widget_section($wp_customize){
         $wp_customize,
         'reign_footer_widget_area_title_color',
         array(
-            'label'     => __('Footer Widget Title Color', 'reign-light'),
+            'label'     => __('Footer Widget Title Color', 'reign-lite'),
             'settings'  => 'reign_footer_widget_area_title_color',
             'section'   => 'footer_widgets',
             'priority'  => 10
@@ -247,7 +248,7 @@ function footer_widget_section($wp_customize){
         $wp_customize,
         'reign_footer_widget_area_text_color',
         array(
-            'label'     => __('Footer Widget Text Color', 'reign-light'),
+            'label'     => __('Footer Widget Text Color', 'reign-lite'),
             'settings'  => 'reign_footer_widget_area_text_color',
             'section'   => 'footer_widgets',
             'priority'  => 10
@@ -260,7 +261,7 @@ function footer_widget_section($wp_customize){
     // ===========================
 
     $wp_customize->add_setting('reign_left_column_text', array(
-        'default'       => __('Copyright - 2017<a href="https://wpwagon.com">WP Wagon</a>', 'reign-light'),
+        'default'       => __('&copy; 2017 <a href="https://www.wpwagon.com">WP Wagon</a>', 'reign-lite'),
         'capability'    => 'edit_theme_options',
         'type'          => 'theme_mod',
         'sanitize_callback' => 'reign_customizer_sanitize'
@@ -270,7 +271,7 @@ function footer_widget_section($wp_customize){
         'type' => 'textarea',
         'priority' => 10, // Within the section.
         'section' => 'footer_widgets', // Required, core or custom.
-        'label' => __( 'Left Column Text', 'reign-light' ),
+        'label' => __( 'Left Column Text', 'reign-lite' ),
         'description' => ''
     ) );
 
@@ -293,7 +294,7 @@ function footer_widget_section($wp_customize){
         'type' => 'text',
         'priority' => 10, // Within the section.
         'section' => 'footer_widgets', // Required, core or custom.
-        'label' => __( 'Facebook Url', 'reign-light' ),
+        'label' => __( 'Facebook Url', 'reign-lite' ),
         'description' => ''
     ) );
 
@@ -311,7 +312,7 @@ function footer_widget_section($wp_customize){
         'type' => 'text',
         'priority' => 10, // Within the section.
         'section' => 'footer_widgets', // Required, core or custom.
-        'label' => __( 'Twitter Url', 'reign-light' ),
+        'label' => __( 'Twitter Url', 'reign-lite' ),
         'description' => ''
     ) );
 
@@ -329,7 +330,7 @@ function footer_widget_section($wp_customize){
         'type' => 'text',
         'priority' => 10, // Within the section.
         'section' => 'footer_widgets', // Required, core or custom.
-        'label' => __( 'Pinterest Url', 'reign-light' ),
+        'label' => __( 'Pinterest Url', 'reign-lite' ),
         'description' => ''
     ) );
 
@@ -347,7 +348,7 @@ function footer_widget_section($wp_customize){
         'type' => 'text',
         'priority' => 10, // Within the section.
         'section' => 'footer_widgets', // Required, core or custom.
-        'label' => __( 'Behance Url', 'reign-light' ),
+        'label' => __( 'Behance Url', 'reign-lite' ),
         'description' => ''
     ) );
 
@@ -365,7 +366,7 @@ function footer_widget_section($wp_customize){
         'type' => 'text',
         'priority' => 10, // Within the section.
         'section' => 'footer_widgets', // Required, core or custom.
-        'label' => __( 'Google Plus Url', 'reign-light' ),
+        'label' => __( 'Google Plus Url', 'reign-lite' ),
         'description' => ''
     ) );
 
@@ -383,30 +384,9 @@ function footer_widget_section($wp_customize){
         'type' => 'text',
         'priority' => 10, // Within the section.
         'section' => 'footer_widgets', // Required, core or custom.
-        'label' => __( 'Linkedin Url', 'reign-light' ),
+        'label' => __( 'Linkedin Url', 'reign-lite' ),
         'description' => ''
     ) );
-
-    // ============================
-    // = Footer right column text =
-    // ============================
-
-    $wp_customize->add_setting('reign_right_column_text', array(
-        'default'       => '',
-        'capability'    => 'edit_theme_options',
-        'type'          => 'theme_mod',
-        'sanitize_callback' => 'reign_customizer_sanitize',
-        'sanitize_js_callback' => 'reign_customizer_sanitize'
-    ));
-
-    $wp_customize->add_control( 'reign_right_column_text', array(
-        'type' => 'textarea',
-        'priority' => 10, // Within the section.
-        'section' => 'footer_widgets', // Required, core or custom.
-        'label' => __( 'Right Column Text', 'reign-light' ),
-        'description' => ''
-    ) );
-
 }
 
 function reign_customizer_sanitize($value){

@@ -11,9 +11,9 @@ class Reign_Widget_Recent_Post extends WP_Widget{
     {
         parent::__construct(
             'reign_widget_recent_post',
-            __('Recent Posts', 'reign-light'),
+            __('Recent Posts', 'reign-lite'),
             array(
-                'description'   => __('Shows Recent Posts', 'reign-light'),
+                'description'   => __('Shows Recent Posts', 'reign-lite'),
                 'classname'     => 'content-wrap widget-recent-posts'
             )
         );
@@ -68,20 +68,20 @@ class Reign_Widget_Recent_Post extends WP_Widget{
      * @param array $instance Previously saved values from database.
      */
     public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'reign-light' );
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'reign-lite' );
         $number_of_posts = ! empty( $instance['number_of_posts'] ) ? $instance['number_of_posts'] : 5 ;
         $show_post_author_name = ! empty( $instance['show_post_author_name'] ) ? $instance['show_post_author_name'] : '';
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'reign-lite' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php _e( 'Number of posts:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>"><?php _e( 'Number of posts:', 'reign-lite' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number_of_posts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_posts' ) ); ?>" type="number" value="<?php echo $number_of_posts; ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'show_post_author_name' ) ); ?>"><?php _e( 'Show Post Author Name:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'show_post_author_name' ) ); ?>"><?php _e( 'Show Post Author Name:', 'reign-lite' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'show_post_author_name' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_post_author_name' ) ); ?>" type="checkbox" <?php echo ($show_post_author_name == 'on') ? 'checked' : '' ?>>
         </p>
         <?php

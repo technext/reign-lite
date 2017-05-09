@@ -11,9 +11,9 @@ class ReignTeamWidget extends WP_Widget{
     {
         parent::__construct(
             'reign-team-widget',
-            __('Team (Homepage)', 'reign-light'),
+            __('Team (Homepage)', 'reign-lite'),
             array(
-                'description'           => __('Shows Team Section. This widget is designed for homepage widgeted area only.', 'reign-light'),
+                'description'           => __('Shows Team Section. This widget is designed for homepage widgeted area only.', 'reign-lite'),
                 'classname'             => ''
             ));
     }
@@ -99,11 +99,11 @@ class ReignTeamWidget extends WP_Widget{
             save to get acurate number of input sections.
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_team_members' ) ); ?>"><?php _e( 'Number of Team Members:', 'reign-light' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'number_of_team_members' ) ); ?>"><?php _e( 'Number of Team Members:', 'reign-lite' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number_of_team_members' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number_of_team_members' ) ); ?>" type="number" value="<?php echo $number_of_team_members; ?>">
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('team_number_of_column')); ?>"><?php echo __('Number of Column', 'reign-light') ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('team_number_of_column')); ?>"><?php echo __('Number of Column', 'reign-lite') ?></label>
             <select name="<?php echo esc_attr($this->get_field_name('team_number_of_column')); ?>" id="<?php echo esc_attr($this->get_field_id('team_number_of_column')); ?>" class="widefat">
                 <option value="1" <?php echo $number_of_columns == 1 ? 'selected' : '' ?>>1</option>
                 <option value="2" <?php echo $number_of_columns == 2 ? 'selected' : '' ?>>2</option>
@@ -123,11 +123,11 @@ class ReignTeamWidget extends WP_Widget{
 
                     <h4><?php echo $name ?></h4>
                     <p>
-                        <label for="<?php echo esc_attr($this->get_field_id('team-member-' . $i . '-name')); ?>"><?php echo __('Name', 'reign-light'); ?></label>
+                        <label for="<?php echo esc_attr($this->get_field_id('team-member-' . $i . '-name')); ?>"><?php echo __('Name', 'reign-lite'); ?></label>
                         <input class="widefat" type="text" id="<?php echo esc_attr($this->get_field_id('team-member-' . $i . '-name')); ?>" name="<?php echo esc_attr($this->get_field_name('team-member-' . $i . '-name')); ?>" value="<?php echo $name?>">
                     </p>
                     <p>
-                        <label class="widefat" for="<?php echo esc_attr($this->get_field_id('team-member-' . $i . '-image')); ?>"><?php echo __('Image', 'reign-light'); ?></label>
+                        <label class="widefat" for="<?php echo esc_attr($this->get_field_id('team-member-' . $i . '-image')); ?>"><?php echo __('Image', 'reign-lite'); ?></label>
                         <a class="team-member-choose-image" href="#" data-target="<?php echo esc_attr($this->get_field_id('team-member-' . $i . '-image')); ?>">Choose Image</a>
                         <?php if(isset($image) && $image != ''): ?>
                             <img src="<?php echo $image ?>" alt="Image">
@@ -135,23 +135,23 @@ class ReignTeamWidget extends WP_Widget{
                         <input type="hidden" value="<?php echo $image; ?>" id="<?php echo esc_attr($this->get_field_id('team-member-' . $i . '-image')); ?>" name="<?php echo esc_attr($this->get_field_name('team-member-' . $i . '-image')); ?>">
                     </p>
                     <p>
-                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-designation' ) ); ?>"><?php echo __('Designation', 'reign-light'); ?></label>
+                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-designation' ) ); ?>"><?php echo __('Designation', 'reign-lite'); ?></label>
                         <input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-designation' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'team-member-' . $i . '-designation' ) ); ?>" value="<?php echo $designation; ?>">
                     </p>
                     <p>
-                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-fb-url' ) ); ?>"><?php echo __('Facebook Url', 'reign-light'); ?></label>
+                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-fb-url' ) ); ?>"><?php echo __('Facebook Url', 'reign-lite'); ?></label>
                         <input type="url" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-fb-url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'team-member-' . $i . '-fb-url' ) ); ?>" value="<?php echo $fb_url; ?>">
                     </p>
                     <p>
-                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-twitter-url' ) ); ?>"><?php echo __('Twitter Url', 'reign-light'); ?></label>
+                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-twitter-url' ) ); ?>"><?php echo __('Twitter Url', 'reign-lite'); ?></label>
                         <input type="url" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-twitter-url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'team-member-' . $i . '-twitter-url' ) ); ?>" value="<?php echo $twitter_url; ?>">
                     </p>
                     <p>
-                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-linkedin-url' ) ); ?>"><?php echo __('LinkedIn Url', 'reign-light'); ?></label>
+                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-linkedin-url' ) ); ?>"><?php echo __('LinkedIn Url', 'reign-lite'); ?></label>
                         <input type="url" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-linekedin-url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'team-member-' . $i . '-linkedin-url' ) ); ?>" value="<?php echo $linkedin_url; ?>">
                     </p>
                     <p>
-                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-googleplus-url' ) ); ?>"><?php echo __('Google Plus Url', 'reign-light'); ?></label>
+                        <label for="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-googleplus-url' ) ); ?>"><?php echo __('Google Plus Url', 'reign-lite'); ?></label>
                         <input type="url" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'team-member-' . $i . '-googleplus-url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'team-member-' . $i . '-googleplus-url' ) ); ?>" value="<?php echo $googleplus_url; ?>">
                     </p>
                 </div>
@@ -166,7 +166,7 @@ class ReignTeamWidget extends WP_Widget{
         $instance['team_number_of_column'] = ( ! empty( $new_instance['team_number_of_column'] ) ? $new_instance['team_number_of_column'] : 3 );
         if($number_of_team_members > 0){
             for ($i = 1; $i <= $number_of_team_members; $i++){
-                $instance['team-member-' . $i . '-name'] = ( ! empty( $new_instance['team-member-' . $i . '-name'] ) ? $new_instance['team-member-' . $i . '-name'] : __('Team Member - ' . $i, 'reign-light') );
+                $instance['team-member-' . $i . '-name'] = ( ! empty( $new_instance['team-member-' . $i . '-name'] ) ? $new_instance['team-member-' . $i . '-name'] : __('Team Member - ' . $i, 'reign-lite') );
                 $instance['team-member-' . $i . '-image'] = ( ! empty( $new_instance['team-member-' . $i . '-image'] )  ? $new_instance['team-member-' . $i . '-image'] : '' );
                 $instance['team-member-' . $i . '-designation'] = ( ! empty( $new_instance['team-member-' . $i . '-designation'] ) ? $new_instance['team-member-' . $i . '-designation'] : 'Team Member - ' . $i . '- Designation' );
                 $instance['team-member-' . $i . '-fb-url'] = ( ! empty( $new_instance['team-member-' . $i . '-fb-url'] ) ? $new_instance['team-member-' . $i . '-fb-url'] : '' );
