@@ -149,7 +149,7 @@ class ReignFunFactsWidget extends WP_Widget{
         $counter_box_number = $instance['funfacts-counter-box-number'] = ( ! empty( $new_instance['funfacts-counter-box-number'] ) ? $new_instance['funfacts-counter-box-number'] : 3 );
         for($i = 1; $i <= $counter_box_number; $i++){
             $instance['funfacts-counter-'.$i.'-icon'] = ( ! empty( $new_instance['funfacts-counter-'.$i.'-icon'] ) ? $new_instance['funfacts-counter-'.$i.'-icon'] : '' );
-            $instance['funfacts-counter-'.$i.'-number'] = ( ! is_null($new_instance['funfacts-counter-'.$i.'-number']) ? $new_instance['funfacts-counter-'.$i.'-number'] : '' );
+            $instance['funfacts-counter-'.$i.'-number'] = ( ! empty($new_instance['funfacts-counter-'.$i.'-number']) ? $new_instance['funfacts-counter-'.$i.'-number'] : '' );
             $instance['funfacts-counter-'.$i.'-description'] = ( ! empty( $new_instance['funfacts-counter-'.$i.'-description'] ) ? $new_instance['funfacts-counter-'.$i.'-description'] : '' );
         }
         return $instance;
