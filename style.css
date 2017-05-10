@@ -1006,7 +1006,7 @@ blockquote p {
         letter-spacing: 1px;
     }
     .main-navigation .navbar-brand {
-        padding: 8px 0 0 15px;
+        padding: 8px 0 8px 15px;
     }
 }
 

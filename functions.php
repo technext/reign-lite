@@ -240,18 +240,22 @@ if(!function_exists('reign_admin_notice')){
         ob_start();
         ?>
         <div class="notice reign-admin-notice is-dismissible">
-            <img src="<?php echo get_template_directory_uri() . '/assets/images/raignmain-logo.png' ?>"
-                 alt="R E ! G N Light">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4 text-center">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/raignmain-logo.png' ?>"
+                         alt="R E ! G N Light">
+                </div>
+                <div class="col-md-4 text-center">
                     <h2>2 out of 3 of Reign Lite users are</h2>
                     <h2>Upgrading to Reign Pro.</h2>
                     <h4><a target="_blank" href="https://wpwagon.com/themes/premium-corporate-agency-wordpress-theme-reign-pro?utm_src=reign_lite_dashboard&utm_medium=reign_lite_dashboard">Find out why?</a></h4>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <p>
-                        <a href="http://demo.wpwagon.com/preview/premium-corporate-agency-wordpress-theme-reign-pro?utm_src=reign_lite_dashboard&utm_medium=reign_lite_dashboard"
+                        <a href="http://demo.wpwagon.com/preview/premium-corporate-agency-wordpress-theme-reign-pro"
                            class="button" target="_blank">Live Preview   &xrarr;</a>
+                    </p>
+                    <p>
                         <a href="https://wpwagon.com/themes/premium-corporate-agency-wordpress-theme-reign-pro?utm_src=reign_lite_dashboard&utm_medium=reign_lite_dashboard"
                            class="button" target="_blank">Buy Pro   &xrarr;</a>
                     </p>
@@ -266,7 +270,7 @@ if(!function_exists('reign_admin_notice')){
 }
 
 function footer_right_text_override(){
-    return '<p class="text-right">Theme By <a href="https://wpwagon.com">WPWagon</a></p>';
+    return '<p class="text-md-right text-sm-center text-xs-center">Theme By <a href="https://wpwagon.com">WPWagon</a></p>';
 }
 
 add_filter('theme_mod_reign_right_column_text', 'footer_right_text_override');
