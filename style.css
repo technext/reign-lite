@@ -370,8 +370,16 @@ ul#icons {
 /**
 * Style for components
 **/
+a{
+    color: #5c5c5c;
+}
+
+a:hover,
+a:active,
 a:focus {
+    text-decoration: none;
     outline: none;
+    color: #cdcfc9;
 }
 
 .navbar-toggle {
@@ -2524,6 +2532,10 @@ blockquote p {
 
 .sidebar .widget.categories ul li a:hover {
     color: gray;
+}
+
+.sidebar .widget-recent-posts ul li a:hover{
+    text-decoration: underline;
 }
 
 .left-sidebar .sidebar {

@@ -50,7 +50,7 @@ class Reign_Widget_Recent_Post extends WP_Widget{
                     <a href="<?php echo get_permalink($post->ID); ?>" class="post-title"><?php echo $post->post_title; ?></a>
                     <?php if($show_post_author_name) : ?>
                         by
-                        <a href="<?php echo get_the_author_link($post->post_author); ?>" class="author"><?php echo get_userdata($post->post_author)->display_name; ?></a>
+                        <a href="<?php echo get_author_posts_url($post->post_author); ?>"><?php echo esc_attr(get_userdata($post->post_author)->display_name); ?></a>
                     <?php endif; ?>
                 </li>
             <?php endforeach; ?>
